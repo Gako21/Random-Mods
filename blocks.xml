@@ -1,0 +1,6 @@
+<configs>
+	<!-- Make rockets go through bars. OP? Perhaps. -->
+	<!-- 											-->
+	<set xpath="/blocks/block[@name='ironBarsCentered']/property[@name='Collide']/@value">movement,melee</set>
+	
+</configs>

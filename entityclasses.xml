@@ -1,0 +1,7 @@
+<configs>
+
+	<!-- Set animal bodies stay for 30 minutes after killed for harvest.-->
+	<!-- 																-->
+	<set xpath="/entity_classes/entity_class[contains(@name, 'animal')]/property[@name='TimeStayAfterDeath']/@value">1800</set>
+	
+</configs>

@@ -1,0 +1,11 @@
+<configs>
+
+	<!-- BRAWLING BUZZ - Brawling drug to combine all the favourable effects to one consumable.-->
+	<!-- 																					   -->
+	<append xpath="/progression/perks/perk[@name='perkBarBrawling7BoozedUp']/effect_group">
+
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1" value="1" tags="drugBrawling"/>
+
+	</append>
+	
+</configs>
