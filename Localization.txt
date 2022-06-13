@@ -1,0 +1,3 @@
+Key,File,Type,UsedInMainMenu,NoTranslate,english,Context / Alternate Text,german,latam,french,italian,japanese,koreana,polish,brazilian,russian,turkish,schinese,tchinese,spanish
+drugBrawling,items,Drug,,,Brawler's Buzz,,,,,,,,,,,,,,
+drugBrawlingDesc,items,Drug,,,"Gives all the bonuses of Vitamins, Painkillers, Steroids, Fort Bites, Beer, Health Bar and Skull Crushers for 12 minutes.",,,,,,,,,,,,,,
