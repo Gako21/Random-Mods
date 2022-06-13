@@ -1,6 +1,0 @@
-<configs>
-	<!-- Items can now be sold to vending machines because of sell limits. -->
-	<!-- 																   -->
-	<set xpath="/traders/trader_info[@id='4']/@allow_sell">true</set>
-	
-</configs>
