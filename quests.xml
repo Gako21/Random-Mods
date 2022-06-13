@@ -1,7 +1,0 @@
-<configs>
-	
-	<!-- Removes the biome restriction for trader quest and trade routes. -->
-	<!-- 												 -->
-	<remove xpath="/quests/quest[@id='quest_whiteRiverCitizen1' or contains(@id, 'nexttrader')]/objective/property[@name='biome_filter_type' or @name='biome_filter']"/>
-	
-</configs>
