@@ -1,13 +1,18 @@
 <configs>
+
 	<!-- Dye recolor -->
 	<!-- 			 -->
-	<set xpath="/item_modifiers/item_modifier[@name='modDyeRed']//item_property_overrides/property[@value!='skin']/@value">255,20,20</set>
-	<set xpath="/item_modifiers/item_modifier[@name='modDyeGreen']//item_property_overrides/property[@value!='skin']/@value">0,240,0</set>
-	<set xpath="/item_modifiers/item_modifier[@name='modDyeBlack']//item_property_overrides/property[@value!='skin']/@value">5,5,5</set>
-	<set xpath="/item_modifiers/item_modifier[@name='modDyeBlue']//item_property_overrides/property[@value!='skin']/@value">10,10,255</set>
-	<set xpath="/item_modifiers/item_modifier[@name='modDyeBrown']//item_property_overrides/property[@value!='skin']/@value">100,70,40</set>
-	<set xpath="/item_modifiers/item_modifier[@name='modDyePink']//item_property_overrides/property[@value!='skin']/@value">255,20,147</set>
-	<set xpath="/item_modifiers/item_modifier[@name='modDyePurple']//item_property_overrides/property[@value!='skin']/@value">113,0,129</set>
-	<set xpath="/item_modifiers/item_modifier[@name='modDyeYellow']//item_property_overrides/property[@value!='skin']/@value">250,250,0</set>
+		<set xpath="/item_modifiers/item_modifier[@name='modDyeRed']//item_property_overrides/property[@value!='skin']/@value">255,20,20</set>
+		<set xpath="/item_modifiers/item_modifier[@name='modDyeGreen']//item_property_overrides/property[@value!='skin']/@value">0,240,0</set>
+		<set xpath="/item_modifiers/item_modifier[@name='modDyeBlack']//item_property_overrides/property[@value!='skin']/@value">5,5,5</set>
+		<set xpath="/item_modifiers/item_modifier[@name='modDyeBlue']//item_property_overrides/property[@value!='skin']/@value">10,10,255</set>
+		<set xpath="/item_modifiers/item_modifier[@name='modDyeBrown']//item_property_overrides/property[@value!='skin']/@value">100,70,40</set>
+		<set xpath="/item_modifiers/item_modifier[@name='modDyePink']//item_property_overrides/property[@value!='skin']/@value">255,20,147</set>
+		<set xpath="/item_modifiers/item_modifier[@name='modDyePurple']//item_property_overrides/property[@value!='skin']/@value">113,0,129</set>
+		<set xpath="/item_modifiers/item_modifier[@name='modDyeYellow']//item_property_overrides/property[@value!='skin']/@value">250,250,0</set>
 	
+	<!-- Set superchargher do more charghing. -->
+	<!-- 									  -->
+		<set xpath="/item_modifiers/item_modifier[@name='modVehicleSuperCharger']/effect_group/passive_effect/@value">1.4</set>
+		
 </configs>

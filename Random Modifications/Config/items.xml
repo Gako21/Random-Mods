@@ -1,246 +1,370 @@
 <configs>
-	<!-- Fix upgrade exp increase with nerdy glasses -->
+
+	<!-- BRAWLING BUZZ (localization, progression, recipes) - Brawling drug to combine all the favourable effects to one consumable.-->
+	<!-- 																			  		   						 				-->
+		<append xpath="/items">
+
+				<item name="drugBrawling">
+					<property name="Tags" value="medical"/>
+					<property name="CustomIcon" value="drugAntibiotics"/> <property name="CustomIconTint" value="df1d1d"/>
+					<property name="UnlockedBy" value="perkBarBrawling7BoozedUp"/>
+					<property name="DisplayType" value="medicalPainkillers"/>
+					<property name="HoldType" value="16"/>
+					<property name="Meshfile" value="#Other/Items?Health/painkillersPrefab.prefab"/>
+					<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+					<property name="Material" value="Morganic"/>
+					<property name="EconomicValue" value="10"/>
+					<property name="Stacknumber" value="10"/>
+					<property name="Group" value="Science,CFChemicals,Medical"/>
+					<property class="Action0">
+						<property name="Class" value="Eat"/>
+						<property name="Delay" value="1.0"/>
+						<property name="Use_time" value="..."/>
+						<property name="Sound_start" value="player_painkillers"/>
+					</property>
+					<effect_group tiered="false" name="Drug Tier 6">
+						
+						<display_value name="dInstantHealth" value="40"/>
+						<display_value name="dHealthLoss" value=".6"/>
+						<display_value name="dStunResist" value="1"/>
+						<display_value name="dDiseaseResist" value="1"/>
+						<display_value name="dDuration" value="360"/>
+						<display_value name="dRunSpeed" value=".1"/>
+						<display_value name="$waterAmountAdd" value="-100"/>
+						<display_value name="dStaminaRegen" value=".4"/>
+						<display_value name="dEntityDamageBrawling" value="3.5"/>
+						<display_value name="dMaxHealthBonus" value="10"/>
+						<display_value name="dBuffResistance" value=".5"/>
+						<display_value name="dNaturalCritHealing" value="2"/>
+						<display_value name="dStopsConcussion" value="1"/>
+						
+						<!-- Painkillers -->
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugPainkillersDuration" operation="add" value="363"/>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugPainkillersDuration" operation="set" value="2163">
+							<requirement name="CVarCompare" cvar="$buffDrugPainkillersDuration" operation="GT" value="2163"/></triggered_effect>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugPainkillers"/>
+						
+						<!-- Vitamins -->
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugVitaminsDuration" operation="add" value="363"/>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugVitaminsDuration" operation="set" value="2163">
+							<requirement name="CVarCompare" cvar="$buffDrugVitaminsDuration" operation="GT" value="2163"/></triggered_effect>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugVitamins"/>
+						
+						<!-- Steroids -->
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugSteroidsDuration" operation="add" value="363"/>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugSteroidsDuration" operation="set" value="2163">
+							<requirement name="CVarCompare" cvar="$buffDrugSteroidsDuration" operation="GT" value="2163"/></triggered_effect>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugSteroids"/>
+					
+						<!-- FortNite -->
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugFortBitesDuration" operation="add" value="363"/>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugFortBitesDuration" operation="set" value="2163">
+							<requirement name="CVarCompare" cvar="$buffDrugFortBitesDuration" operation="GT" value="2163"/></triggered_effect>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugFortBites"/>
+						
+						<!-- Beer -->
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffBeerDuration" operation="add" value="363">
+							<requirement name="ProgressionLevel" progression_name="perkBarBrawling7BoozedUp" operation="Equals" value="0"/></triggered_effect>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffBeerDuration" operation="add" value="183">
+							<requirement name="ProgressionLevel" progression_name="perkBarBrawling7BoozedUp" operation="Equals" value="1"/></triggered_effect>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffBeerDuration" operation="set" value="2163">
+							<requirement name="CVarCompare" cvar="$buffBeerDuration" operation="GT" value="2163"/></triggered_effect>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffBeer"/>
+
+						<!-- Damage candy -->
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugSkullCrushersDuration" operation="add" value="363"/>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugSkullCrushersDuration" operation="set" value="2163">
+							<requirement name="CVarCompare" cvar="$buffDrugSkullCrushersDuration" operation="GT" value="2163"/></triggered_effect>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugSkullCrushers"/>
+						
+						<!-- Health candy -->
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugHealthBarDuration" operation="add" value="363"/>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugHealthBarDuration" operation="set" value="2163">
+							<requirement name="CVarCompare" cvar="$buffDrugHealthBarDuration" operation="GT" value="2163"/></triggered_effect>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugHealthBar"/>
+					</effect_group>
+				</item>
+
+		</append>
+
+	<!-- LOCKPICKS (recipes) - Set lockpick bundles give 10k lockpicks and set lockpicks stack at 10k. -->
+	<!-- 																					 		   -->
+		<set xpath="/items/item[@name='resourceLockPickBundle']/property[@class='Action0']/property[@name='Create_item_count'][@value='50']/@value">10000</set>
+		<set xpath="items/item[@name='resourceLockPick']/property[@name='Stacknumber']/@value">10000</set>
+
+	<!-- MODDAMAGE (progression) - Make mods add more damage based on skill level. -->
+	<!-- 															 			   -->
+		<remove xpath="/items/item/effect_group/passive_effect[@name='ModPowerBonus' and @tags='EntityDamage,BlockDamage']"/>
+		
+		<append xpath="/items/item/effect_group/passive_effect[@name='ModPowerBonus' and @tags='EconomicValue']/..">
+		
+			<passive_effect name="ModPowerBonus" operation="perc_add" value="0.1" tags="EntityDamage,BlockDamage">
+				<requirement name="CVarCompare" cvar="ModPower" operation="Equals" value="0"/> 
+			</passive_effect>
+			<passive_effect name="ModPowerBonus" operation="perc_add" value="0.2" tags="EntityDamage,BlockDamage">
+				<requirement name="CVarCompare" cvar="ModPower" operation="Equals" value="1"/> 
+			</passive_effect>
+			<passive_effect name="ModPowerBonus" operation="perc_add" value="0.4" tags="EntityDamage,BlockDamage">
+				<requirement name="CVarCompare" cvar="ModPower" operation="Equals" value="2"/>			
+			</passive_effect>
+			<passive_effect name="ModPowerBonus" operation="perc_add" value="0.6" tags="EntityDamage,BlockDamage">
+				<requirement name="CVarCompare" cvar="ModPower" operation="Equals" value="3"/> 
+			</passive_effect>
+			<passive_effect name="ModPowerBonus" operation="perc_add" value="0.8" tags="EntityDamage,BlockDamage">
+				<requirement name="CVarCompare" cvar="ModPower" operation="Equals" value="4"/> 
+			</passive_effect>
+			<passive_effect name="ModPowerBonus" operation="perc_add" value="1" tags="EntityDamage,BlockDamage">
+				<requirement name="CVarCompare" cvar="ModPower" operation="Equals" value="5"/> 
+			</passive_effect>
+			
+		</append>
+		
+		<!-- Make Fergettin' Elixir reset it to the default. -->
+		<append xpath="/items/item[@name='drinkJarGrandpasForgettingElixir']/effect_group">
+		
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="ModPower" target="self" operation="set" value="0"/>
+		
+		</append>
+	
+	<!-- ZOMBIE INFECTION (entityclasses) - Make zombies give infection on every hit -->
+	<!--															 				 -->
+		<append xpath="/items/item/effect_group/triggered_effect[@cvar='infectionCounter']/..">
+		
+			<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffInfectionCatch">
+				<requirement name="CVarCompare" target="other" cvar="infectionCounter" operation="Equals" value="0"/>
+			</triggered_effect>
+			
+		</append>
+		
+		<setattribute xpath="/items/item/effect_group/passive_effect[@name='BuffResistance']" name="tags">buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire,critResistDisplay
+		</setattribute>
+
+	<!-- Fix upgrade exp increase with nerdy glasses. -->
 	<!-- 											 -->
-	<append xpath="/items/item[@name='apparelNerdGlasses']/effect_group">
+		<append xpath="/items/item[@name='apparelNerdGlasses']/effect_group">
+		
+			<passive_effect name="PlayerExpGain" operation="perc_add" value=".5" tags="Upgrading"/>
+		
+		</append>
 	
-		<passive_effect name="PlayerExpGain" operation="perc_add" value=".5" tags="Upgrading"/>
+	<!-- Set every item but tiered items, hand-held tools and clothing/armour to stack at 30 000. -->
+	<!-- 																						  -->
+		<set xpath="/items/item/property[@name='Stacknumber']/@value">30000</set>
+		<set xpath="/items/item/property[@name='Tags' and (contains(@value, 'tool')) or (contains(@value, 'clothing'))]/../property[@name='Stacknumber']/@value">1</set>
 	
-	</append>
+	<!-- Make Swat helmets shock the ones daring to attack you every other time -->
+	<!-- 																		-->
 	
-	<!-- BRAWLING BUZZ - Brawling drug to combine all the favourable effects to one consumable.-->
-	<!-- 																			  		   -->
-	<append xpath="/items">
+		<append xpath="/items/item[@name='armorSwatHelmet']">
+			<effect_group>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+				<triggered_effect trigger="onOtherAttackedSelf" action="Ragdoll" target="other" duration="2.5" force="350"/>
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" buff="buffShocked"/>
+			</effect_group>
+		</append>
+	
+	<!-- Make sledgehammers shock everyone around you - literally! -->
+	<!-- 														   -->
+		<append xpath="/items/item/property[@name='Tags' and @value= 'blunt,melee,grunting,heavy,sledge,weapon,meleeWeapon,longShaft,attStrength,perkSkullCrusher,canHaveCosmetic']/..">
+			<effect_group name="apply damage buff, meleeWpnBatonT2StunBaton">
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="Ragdoll" target="otherAOE" range="5" target_tags="zombie,animal" duration="2.5" force="350">
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="Ragdoll" target="otherAOE" range="5" target_tags="zombie,animal" duration="2.5" force="350">
+				</triggered_effect>
 
-			<item name="drugBrawling">
-				<property name="Tags" value="medical"/>
-				<property name="CustomIcon" value="drugAntibiotics"/> <property name="CustomIconTint" value="df1d1d"/>
-				<property name="UnlockedBy" value="perkBarBrawling7BoozedUp"/>
-				<property name="DisplayType" value="medicalPainkillers"/>
-				<property name="HoldType" value="16"/>
-				<property name="Meshfile" value="#Other/Items?Health/painkillersPrefab.prefab"/>
-				<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
-				<property name="Material" value="Morganic"/>
-				<property name="EconomicValue" value="10"/>
-				<property name="Stacknumber" value="10"/> <!-- STK loot -->
-				<property name="Group" value="Science,CFChemicals,Medical"/>
-				<property class="Action0">
-					<property name="Class" value="Eat"/>
-					<property name="Delay" value="1.0"/>
-					<property name="Use_time" value="..."/>
-					<property name="Sound_start" value="player_painkillers"/>
-				</property>
-				<effect_group tiered="false" name="Drug Tier 6">
-					
-					<display_value name="dInstantHealth" value="40"/>
-					<display_value name="dHealthLoss" value=".6"/>
-					<display_value name="dStunResist" value="1"/>
-					<display_value name="dDiseaseResist" value="1"/>
-					<display_value name="dDuration" value="360"/>
-					<display_value name="dRunSpeed" value=".1"/>
-					<display_value name="$waterAmountAdd" value="-100"/>
-					<display_value name="dStaminaRegen" value=".4"/>
-					<display_value name="dEntityDamageBrawling" value="3.5"/>
-					<display_value name="dMaxHealthBonus" value="10"/>
-					<display_value name="dBuffResistance" value=".5"/>
-					<display_value name="dNaturalCritHealing" value="2"/>
-					<display_value name="dStopsConcussion" value="1"/>
-					
-					<!-- Painkillers -->
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugPainkillersDuration" operation="add" value="363"/>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugPainkillersDuration" operation="set" value="2163">
-						<requirement name="CVarCompare" cvar="$buffDrugPainkillersDuration" operation="GT" value="2163"/></triggered_effect>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugPainkillers"/>
-					
-					<!-- Vitamins -->
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugVitaminsDuration" operation="add" value="363"/>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugVitaminsDuration" operation="set" value="2163">
-						<requirement name="CVarCompare" cvar="$buffDrugVitaminsDuration" operation="GT" value="2163"/></triggered_effect>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugVitamins"/>
-					
-					<!-- Steroids -->
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugSteroidsDuration" operation="add" value="363"/>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugSteroidsDuration" operation="set" value="2163">
-						<requirement name="CVarCompare" cvar="$buffDrugSteroidsDuration" operation="GT" value="2163"/></triggered_effect>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugSteroids"/>
+				<!-- Set duration -->
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar" target="other" cvar=".buffShockedDurationStart" operation="set" value="5">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner" operation="Equals" value="1"/></triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar" target="other" cvar=".buffShockedDurationStart" operation="set" value="6">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner" operation="Equals" value="2"/></triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar" target="other" cvar=".buffShockedDurationStart" operation="set" value="7">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner" operation="Equals" value="3"/></triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar" target="other" cvar=".buffShockedDurationStart" operation="set" value="8">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner" operation="Equals" value="4"/></triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar" target="other" cvar=".buffShockedDurationStart" operation="set" value="9">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner" operation="Equals" value="5"/></triggered_effect>
+
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar=".buffShockedDurationStart" operation="set" value="5">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner" operation="Equals" value="1"/></triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar=".buffShockedDurationStart" operation="set" value="6">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner" operation="Equals" value="2"/></triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar=".buffShockedDurationStart" operation="set" value="7">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner" operation="Equals" value="3"/></triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar=".buffShockedDurationStart" operation="set" value="8">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner" operation="Equals" value="4"/></triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar=".buffShockedDurationStart" operation="set" value="9">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner" operation="Equals" value="5"/></triggered_effect>
+
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="AddBuff" target="otherAOE" range="5" target_tags="zombie,animal" buff="buffShocked"/>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="AddBuff" target="otherAOE" range="5" target_tags="zombie,animal" buff="buffShocked"/>
 				
-					<!-- FortNite -->
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugFortBitesDuration" operation="add" value="363"/>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugFortBitesDuration" operation="set" value="2163">
-						<requirement name="CVarCompare" cvar="$buffDrugFortBitesDuration" operation="GT" value="2163"/></triggered_effect>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugFortBites"/>
-					
-					<!-- Beer -->
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffBeerDuration" operation="add" value="363">
-						<requirement name="ProgressionLevel" progression_name="perkBarBrawling7BoozedUp" operation="Equals" value="0"/></triggered_effect>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffBeerDuration" operation="add" value="183">
-						<requirement name="ProgressionLevel" progression_name="perkBarBrawling7BoozedUp" operation="Equals" value="1"/></triggered_effect>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffBeerDuration" operation="set" value="2163">
-						<requirement name="CVarCompare" cvar="$buffBeerDuration" operation="GT" value="2163"/></triggered_effect>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffBeer"/>
-
-					<!-- Damage candy -->
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugSkullCrushersDuration" operation="add" value="363"/>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugSkullCrushersDuration" operation="set" value="2163">
-						<requirement name="CVarCompare" cvar="$buffDrugSkullCrushersDuration" operation="GT" value="2163"/></triggered_effect>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugSkullCrushers"/>
-					
-					<!-- Health candy -->
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugHealthBarDuration" operation="add" value="363"/>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugHealthBarDuration" operation="set" value="2163">
-						<requirement name="CVarCompare" cvar="$buffDrugHealthBarDuration" operation="GT" value="2163"/></triggered_effect>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugHealthBar"/>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar" cvar=".stunBatonCharge" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" cvar=".stunBatonCharge" operation="set" value="0"/>
+			</effect_group>
+		</append>
+	
+	<!-- EXP GUN (localization) - Exp gun goes pew pew.-->
+	<!-- 					  						   -->
+	
+		<append xpath="/items">
+		
+			<item name="ExpPewPewGun">
+				<property name="Extends" value="gunHandgunT3SMG5"/>
+				<property name="CustomIcon" value="gunHandgunT3SMG5"/>
+				<property name="CustomIconTint" value="40,40,40"/>
+				<property class="Action0">
+					<property name="Class" value="Launcher"/>
+					<property name="Hitmask_override" value="Bullet"/>
+					<property name="Magazine_items" value="ammo10kExp,ammo50kExp,ammo200kExp,ammo1mExp"/>
+					<property name="Reload_time" value="1"/>
+					<property name="Particles_muzzle_fire" value="nozzleflashuzi"/>
+					<property name="Particles_muzzle_smoke" value="nozzlesmokeuzi"/>
+					<property name="Sound_start" value=""/>
+					<property name="Sound_repeat" value=""/>
+					<property name="Sound_end" value=""/>
+					<property name="Sound_empty" value="dryfire"/>
+					<property name="Sound_reload" value=""/>
+				</property>
+				<effect_group>
+					<passive_effect name="RoundsPerMinute" operation="base_set" value="450"/>
+					<passive_effect name="BurstRoundCount" operation="base_set" value="1"/>
+					<passive_effect name="EntityDamage" operation="base_set" value="0"/>
+					<passive_effect name="BlockDamage" operation="base_set" value="0"/>
+					<passive_effect name="MagazineSize" operation="base_set" value="10"/>
+					<passive_effect name="MaxRange" operation="base_set" value="200"/>
+					<passive_effect name="SpreadDegreesVertical" operation="base_set" value="0"/>
+					<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="0"/>
+					<passive_effect name="SpreadMultiplierAiming" operation="base_set" value="0"/>
+					<passive_effect name="SpreadMultiplierHip" operation="base_set" value="0"/>
+					<passive_effect name="IncrementalSpreadMultiplier" operation="base_set" value="0"/>
+					<passive_effect name="WeaponHandling" operation="base_set" value="100"/>
+					<passive_effect name="KickDegreesVerticalMin" operation="base_set" value="0"/>
+					<passive_effect name="KickDegreesVerticalMax" operation="base_set" value="0"/>
+					<passive_effect name="KickDegreesHorizontalMin" operation="base_set" value="0"/>
+					<passive_effect name="KickDegreesHorizontalMax" operation="base_set" value="0"/>
+					<passive_effect name="DegradationMax" operation="base_set" value="9999"/>
+					<passive_effect name="DegradationPerUse" operation="base_set" value="0"/>
+					<passive_effect name="ModSlots" operation="base_set" value="0"/>
 				</effect_group>
 			</item>
-
-	</append>
-	
-	<!-- Exp gun goes pew pew.-->
-	<!-- 					  -->
-	
-	<append xpath="/items">
-		<item name="ExpPewPewGun">
-			<property name="Extends" value="gunHandgunT3SMG5"/>
-			<property name="CustomIcon" value="gunHandgunT3SMG5"/>
-			<property name="CustomIconTint" value="40,40,40"/>
-			<property class="Action0">
-				<property name="Class" value="Launcher"/>
-				<property name="Hitmask_override" value="Bullet"/>
-				<property name="Magazine_items" value="ammo10kExp,ammo50kExp,ammo200kExp,ammo1mExp"/>
-				<property name="Reload_time" value="1"/>
-				<property name="Particles_muzzle_fire" value="nozzleflashuzi"/>
-				<property name="Particles_muzzle_smoke" value="nozzlesmokeuzi"/>
-				<property name="Sound_start" value=""/>
-				<property name="Sound_repeat" value=""/>
-				<property name="Sound_end" value=""/>
-				<property name="Sound_empty" value="dryfire"/>
-				<property name="Sound_reload" value=""/>
-			</property>
-			<effect_group>
-				<passive_effect name="RoundsPerMinute" operation="base_set" value="450"/>
-				<passive_effect name="BurstRoundCount" operation="base_set" value="1"/>
-				<passive_effect name="EntityDamage" operation="base_set" value="0"/>
-				<passive_effect name="BlockDamage" operation="base_set" value="0"/>
-				<passive_effect name="MagazineSize" operation="base_set" value="10"/>
-				<passive_effect name="MaxRange" operation="base_set" value="200"/>
-				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="0"/>
-				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="0"/>
-				<passive_effect name="SpreadMultiplierAiming" operation="base_set" value="0"/>
-				<passive_effect name="SpreadMultiplierHip" operation="base_set" value="0"/>
-				<passive_effect name="IncrementalSpreadMultiplier" operation="base_set" value="0"/>
-				<passive_effect name="WeaponHandling" operation="base_set" value="100"/>
-				<passive_effect name="KickDegreesVerticalMin" operation="base_set" value="0"/>
-				<passive_effect name="KickDegreesVerticalMax" operation="base_set" value="0"/>
-				<passive_effect name="KickDegreesHorizontalMin" operation="base_set" value="0"/>
-				<passive_effect name="KickDegreesHorizontalMax" operation="base_set" value="0"/>
-				<passive_effect name="DegradationMax" operation="base_set" value="9999"/>
-				<passive_effect name="DegradationPerUse" operation="base_set" value="0"/>
-				<passive_effect name="ModSlots" operation="base_set" value="0"/>
-			</effect_group>
-		</item>
-		
-		<!-- Exp ammo go weeeee -->
-		
-		<item name="ammo10kExp">
-			<property name="Extends" value="ammoArrowIron"/>
-			<property name="Tags" value="ammo"/>
-			<property name="CustomIcon" value="ammo9mmBulletBall"/>
-			<property name="CustomIconTint" value="6, 31, 242"/>
-			<property name="DisplayType" value="ammoArrow"/>
-			<property name="Meshfile" value="#Other/Items?Weapons/Ranged/Bows/Arrows/bolt_stonePrefab.prefab"/>
-			<property name="HoldType" value="45"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
-			<property name="Material" value="Mbrass"/>
-			<property name="Stacknumber" value="1000"/>
-			<property name="EconomicValue" value="1"/>
-			<property name="EconomicBundleSize" value="1000"/>
-			<property name="Group" value="Ammo"/>
-			<property name="IsSticky" value="false"/>
-			<property class="Action1">
-				<property name="Gravity" value="-5"/>
-			</property>
-			<effect_group name="Exp10K" tiered="false">
-				<passive_effect name="EntityDamage" operation="base_set" value="0"/>
-				<passive_effect name="BlockDamage" operation="base_set" value="0"/>
-				<passive_effect name="ProjectileVelocity" operation="base_set" value="1000"/>
-				<triggered_effect trigger="onProjectileImpact" action="ModifyStats" target="other" stat="Health" operation="add" value="1"/>
-				<triggered_effect trigger="onProjectileImpact" action="GiveExp" target="other" value="10000"/>
-			</effect_group>
-		</item>
-		
-		<item name="ammo50kExp">
-			<property name="Extends" value="ammo10kExp"/>
-			<property name="CustomIconTint" value="219, 15, 15"/>
-			<effect_group name="Exp50K" tiered="false">
-				<passive_effect name="EntityDamage" operation="base_set" value="0"/>
-				<passive_effect name="BlockDamage" operation="base_set" value="0"/>
-				<passive_effect name="ProjectileVelocity" operation="base_set" value="1000"/>
-				<triggered_effect trigger="onProjectileImpact" action="ModifyStats" target="other" stat="Health" operation="add" value="1"/>
-				<triggered_effect trigger="onProjectileImpact" action="GiveExp" target="other" value="50000"/>
-			</effect_group>
-		</item>
-		
-		<item name="ammo200kExp">
-			<property name="Extends" value="ammo10kExp"/>
-			<effect_group name="Exp200K" tiered="false">
-			<property name="CustomIconTint" value="255, 255, 0"/>
-				<passive_effect name="EntityDamage" operation="base_set" value="0"/>
-				<passive_effect name="BlockDamage" operation="base_set" value="0"/>
-				<passive_effect name="ProjectileVelocity" operation="base_set" value="1000"/>
-				<triggered_effect trigger="onProjectileImpact" action="ModifyStats" target="other" stat="Health" operation="add" value="1"/>
-				<triggered_effect trigger="onProjectileImpact" action="GiveExp" target="other" value="200000"/>
-			</effect_group>
-		</item>
-		
-		<item name="ammo1mExp">
-			<property name="Extends" value="ammo10kExp"/>
-			<effect_group name="Exp100K" tiered="false">
-			<property name="CustomIconTint" value="255, 0, 102"/>
-				<passive_effect name="EntityDamage" operation="base_set" value="0"/>
-				<passive_effect name="BlockDamage" operation="base_set" value="0"/>
-				<passive_effect name="ProjectileVelocity" operation="base_set" value="1000"/>
-				<triggered_effect trigger="onProjectileImpact" action="ModifyStats" target="other" stat="Health" operation="add" value="1"/>
-				<triggered_effect trigger="onProjectileImpact" action="GiveExp" target="other" value="1000000"/>
-			</effect_group>
-		</item>
-		
-	</append>
+			
+			<!-- Exp ammo go weeeee -->
+			
+			<item name="ammo10kExp">
+				<property name="Extends" value="ammoArrowIron"/>
+				<property name="Tags" value="ammo"/>
+				<property name="CustomIcon" value="ammo9mmBulletBall"/>
+				<property name="CustomIconTint" value="6, 31, 242"/>
+				<property name="DisplayType" value="ammoArrow"/>
+				<property name="Meshfile" value="#Other/Items?Weapons/Ranged/Bows/Arrows/bolt_stonePrefab.prefab"/>
+				<property name="HoldType" value="45"/>
+				<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+				<property name="Material" value="Mbrass"/>
+				<property name="Stacknumber" value="1000"/>
+				<property name="EconomicValue" value="1"/>
+				<property name="EconomicBundleSize" value="1000"/>
+				<property name="Group" value="Ammo"/>
+				<property name="IsSticky" value="false"/>
+				<property class="Action1">
+					<property name="Gravity" value="-5"/>
+				</property>
+				<effect_group name="Exp10K" tiered="false">
+					<passive_effect name="EntityDamage" operation="base_set" value="0"/>
+					<passive_effect name="BlockDamage" operation="base_set" value="0"/>
+					<passive_effect name="ProjectileVelocity" operation="base_set" value="1000"/>
+					<triggered_effect trigger="onProjectileImpact" action="ModifyStats" target="other" stat="Health" operation="add" value="1"/>
+					<triggered_effect trigger="onProjectileImpact" action="GiveExp" target="other" value="10000"/>
+				</effect_group>
+			</item>
+			
+			<item name="ammo50kExp">
+				<property name="Extends" value="ammo10kExp"/>
+				<property name="CustomIconTint" value="219, 15, 15"/>
+				<effect_group name="Exp50K" tiered="false">
+					<passive_effect name="EntityDamage" operation="base_set" value="0"/>
+					<passive_effect name="BlockDamage" operation="base_set" value="0"/>
+					<passive_effect name="ProjectileVelocity" operation="base_set" value="1000"/>
+					<triggered_effect trigger="onProjectileImpact" action="ModifyStats" target="other" stat="Health" operation="add" value="1"/>
+					<triggered_effect trigger="onProjectileImpact" action="GiveExp" target="other" value="50000"/>
+				</effect_group>
+			</item>
+			
+			<item name="ammo200kExp">
+				<property name="Extends" value="ammo10kExp"/>
+				<effect_group name="Exp200K" tiered="false">
+				<property name="CustomIconTint" value="255, 255, 0"/>
+					<passive_effect name="EntityDamage" operation="base_set" value="0"/>
+					<passive_effect name="BlockDamage" operation="base_set" value="0"/>
+					<passive_effect name="ProjectileVelocity" operation="base_set" value="1000"/>
+					<triggered_effect trigger="onProjectileImpact" action="ModifyStats" target="other" stat="Health" operation="add" value="1"/>
+					<triggered_effect trigger="onProjectileImpact" action="GiveExp" target="other" value="200000"/>
+				</effect_group>
+			</item>
+			
+			<item name="ammo1mExp">
+				<property name="Extends" value="ammo10kExp"/>
+				<effect_group name="Exp100K" tiered="false">
+				<property name="CustomIconTint" value="255, 0, 102"/>
+					<passive_effect name="EntityDamage" operation="base_set" value="0"/>
+					<passive_effect name="BlockDamage" operation="base_set" value="0"/>
+					<passive_effect name="ProjectileVelocity" operation="base_set" value="1000"/>
+					<triggered_effect trigger="onProjectileImpact" action="ModifyStats" target="other" stat="Health" operation="add" value="1"/>
+					<triggered_effect trigger="onProjectileImpact" action="GiveExp" target="other" value="1000000"/>
+				</effect_group>
+				
+			</item>
+			
+		</append>
 	
 	<!-- Add a new dev item that destroys and gives you the good stuff -->
 	<!-- 																-->
-	<append xpath="/items">
-		<item name="CombineHarvester">
-			<property name="Extends" value="gunToolDiggerAdmin"/>
-			<property name="CustomIconTint" value="90,90,90"/>
-			<property class="Action0">
-				<property name="SupportHarvesting" value="true"/>
-				<property name="ToolCategory.harvestingTools" value="1" param1="1"/>
-				<property name="ToolCategory.Butcher" value="1" param1="1"/>
-			</property>
-			<effect_group>
-				<passive_effect name="RoundsPerMinute" operation="base_set" value="450"/>
-				<passive_effect name="BurstRoundCount" operation="base_set" value="5000"/>
-				<passive_effect name="EntityDamage" operation="base_set" value="0"/>
-				<passive_effect name="BlockDamage" operation="base_set" value="1000"/>
-				<passive_effect name="MaxRange" operation="base_set" value="200"/>
-				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="0"/>
-				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="0"/>
-				<passive_effect name="SpreadMultiplierAiming" operation="base_set" value="0"/>
-				<passive_effect name="SpreadMultiplierHip" operation="base_set" value="0"/>
-				<passive_effect name="IncrementalSpreadMultiplier" operation="base_set" value="0"/>
-				<passive_effect name="WeaponHandling" operation="base_set" value="100"/>
-				<passive_effect name="KickDegreesVerticalMin" operation="base_set" value="0"/>
-				<passive_effect name="KickDegreesVerticalMax" operation="base_set" value="0"/>
-				<passive_effect name="KickDegreesHorizontalMin" operation="base_set" value="0"/>
-				<passive_effect name="KickDegreesHorizontalMax" operation="base_set" value="0"/>
-				<passive_effect name="DegradationMax" operation="base_set" value="9999" tags="admin"/>
-				<passive_effect name="DegradationPerUse" operation="base_set" value="0" tags="admin"/>
-				<passive_effect name="ModSlots" operation="base_set" value="0"/>
-			</effect_group>
-		</item>
-	</append>
+		<append xpath="/items">
+		
+			<item name="CombineHarvester">
+				<property name="Extends" value="gunToolDiggerAdmin"/>
+				<property name="CustomIconTint" value="90,90,90"/>
+				<property class="Action0">
+					<property name="SupportHarvesting" value="true"/>
+					<property name="ToolCategory.harvestingTools" value="1" param1="1"/>
+					<property name="ToolCategory.Butcher" value="1" param1="1"/>
+				</property>
+				<effect_group>
+					<passive_effect name="RoundsPerMinute" operation="base_set" value="450"/>
+					<passive_effect name="BurstRoundCount" operation="base_set" value="5000"/>
+					<passive_effect name="EntityDamage" operation="base_set" value="0"/>
+					<passive_effect name="BlockDamage" operation="base_set" value="1000"/>
+					<passive_effect name="MaxRange" operation="base_set" value="200"/>
+					<passive_effect name="SpreadDegreesVertical" operation="base_set" value="0"/>
+					<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="0"/>
+					<passive_effect name="SpreadMultiplierAiming" operation="base_set" value="0"/>
+					<passive_effect name="SpreadMultiplierHip" operation="base_set" value="0"/>
+					<passive_effect name="IncrementalSpreadMultiplier" operation="base_set" value="0"/>
+					<passive_effect name="WeaponHandling" operation="base_set" value="100"/>
+					<passive_effect name="KickDegreesVerticalMin" operation="base_set" value="0"/>
+					<passive_effect name="KickDegreesVerticalMax" operation="base_set" value="0"/>
+					<passive_effect name="KickDegreesHorizontalMin" operation="base_set" value="0"/>
+					<passive_effect name="KickDegreesHorizontalMax" operation="base_set" value="0"/>
+					<passive_effect name="DegradationMax" operation="base_set" value="9999" tags="admin"/>
+					<passive_effect name="DegradationPerUse" operation="base_set" value="0" tags="admin"/>
+					<passive_effect name="ModSlots" operation="base_set" value="0"/>
+				</effect_group>
+			</item>
+			
+		</append>
 	
 	<!-- Remove crosshairs while aiming -->
 	<!-- 								-->
-	<set xpath="/items/item/property[@name='CrosshairOnAim']/@value"> false </set>
+		<set xpath="/items/item/property[@name='CrosshairOnAim']/@value"> false </set>
 	
-</configs>			
+	<!-- Testing, possibly for the future. -->
+	<!-- 								   -->
+	
+		<append xpath="/items/item[@name='gunHandgunT2Magnum44']">
+		
+			<effect_group>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="AddBuff" target="other" buff="buffShocked"/>
+			</effect_group>
+			
+		</append>
+	
+</configs>

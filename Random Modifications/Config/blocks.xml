@@ -1,6 +1,64 @@
 <configs>
+
 	<!-- Make rockets go through bars. OP? Perhaps. -->
 	<!-- 											-->
-	<set xpath="/blocks/block[@name='ironBarsCentered']/property[@name='Collide']/@value">movement,melee</set>
+		<set xpath="/blocks/block[@name='woodBarsCentered']/property[@name='Collide']/@value">movement,melee</set>
+		<set xpath="/blocks/block[@name='ironBarsCentered']/property[@name='Collide']/@value">movement,melee</set>
 	
+	<!-- Make haybales act as mines. Why? For the glory of Satan of course! -->
+	<!-- 																	-->
+		<setattribute xpath="/blocks/block[@name='hayBaleBlock']/property[@name='Material']" name="value">MLandMine</setattribute>
+		
+		<append xpath="/blocks/block[@name='hayBaleBlock']">
+		
+			<property name="Tags" value="Mine"/>
+			<property name="ItemTypeIcon" value="explosion"/>
+			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+			<property name="TriggerDelay" value="0.0"/>
+			<property name="TriggerSound" value="landmine_trigger"/>
+			<property name="Explosion.ParticleIndex" value="13"/>
+			<property name="Explosion.RadiusBlocks" value="1"/>
+			<property name="Explosion.RadiusEntities" value="4"/>
+			<property name="Explosion.BlockDamage" value="1"/>
+			<property name="Explosion.EntityDamage" value="100"/>
+			<property name="Explosion.DamageBonus.stone" value="0"/>
+			<property name="Explosion.DamageBonus.metal" value="0"/>
+			<property name="Explosion.DamageBonus.earth" value="0"/>
+			<property name="Explosion.DamageBonus.wood" value="0"/>
+			<property name="Explosion.DamageBonus.water" value="0"/>
+			<property name="Group" value="Tools/Traps"/>
+			<property name="BuffsWhenWalkedOn" value="buffWeFlying"/>
+		
+		</append>
+	
+	<!-- Make haybales and wooden spikes indestructable and pickable. -->
+	<!-- 															  -->
+	
+		<!-- Haybales -->
+		<append xpath="/blocks/block[@name='hayBaleSquare']">
+			<property name="CanPickup" value="true"/>
+			<property name="DowngradeBlock" value="hayBaleSquare"/>
+		</append>
+		
+		<append xpath="/blocks/block[@name='hayBaleRound']">
+			<property name="DowngradeBlock" value="hayBaleRound"/>
+		</append>
+		
+		<!-- Spikes -->
+		<set xpath="/blocks/block[@name='trapSpikesWoodDmg0']/property[@name='DowngradeBlock']/@value">trapSpikesWoodDmg0</set>
+		
+		<append xpath="/blocks/block[@name='trapSpikesWoodDmg0']">
+			<property name="CanPickup" value="true"/>
+		</append>
+	
+	<!-- Make seeds more durable and able to be repaired due to damage persisting when the plant grows. -->
+	<!-- 																								-->
+		<append xpath="/blocks/block/property[@name='Extends' and @value='cropsGrowingMaster']/..">
+			<property name="MaxDamage" value="30"/>
+		</append>
+
+		<append xpath="/blocks/block[contains(@name, 'HarvestPlayer')]">
+			<property class="RepairItems"> <property name="resourceYuccaFibers" value="1"/> </property>
+		</append>
+
 </configs>

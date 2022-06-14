@@ -1,32 +1,32 @@
 <configs>
 
-	<!-- Make crafting gunpowder in bundles sensible again time-wise. -->
-	<!-- 															  -->
-	<removeattribute xpath="/recipes/recipe[@name='resourceGunPowderBundle']/@craft_time">true</removeattribute>
+	<!-- BRAWLING BUZZ (items, localization, progression) - Brawling drug to combine all the favourable effects to one consumable.-->
+	<!-- 																					  									  -->
+		<append xpath="/recipes">
+		
+			<recipe name="drugBrawling" count="2" craft_time="10" tags="learnable">
+				<ingredient name="drugHealthBar" count="2"/>
+				<ingredient name="drugSkullCrushers" count="2"/>
+				<ingredient name="drugFortBites" count="6"/>
+				<ingredient name="drugSteroids" count="1"/>
+				<ingredient name="drugPainkillers" count="4"/>
+				<ingredient name="drugVitamins" count="1"/>
+				<ingredient name="drinkJarBeer" count="8"/>
+			</recipe>
+		
+		</append>
+		
+	<!-- LOCKPICKS (items)  - Set lockpick bundles cost 8k ingredients. -->
+	<!-- 								   					    		-->
+		<set xpath="/recipes/recipe[@name='resourceLockPickBundle']/ingredient/@count">8000</set>
 	
 	<!-- Make resource stacks (Art of Mining Vol. 5) give only one xp when crafted. -->
 	<!-- 																			-->
-	<setattribute xpath="/recipes/recipe/ingredient[@count='6000']/.." name="craft_exp_gain">1</setattribute>
+		<setattribute xpath="/recipes/recipe/ingredient[@count='6000']/.." name="craft_exp_gain">1</setattribute>
 	
+	<!-- Make a few recipes' crafting times sensible.-->
+		<removeattribute xpath="/recipes/recipe[@name='resourceGunPowderBundle']/@craft_time">true</removeattribute>
+		<setattribute xpath="/recipes/recipe[@name='chemistryStation']" name="craft_time">60</setattribute>
+		<setattribute xpath="/recipes/recipe[@name='drugFortBites']" name="craft_time">60</setattribute>
 	
-	<!-- BRAWLING BUZZ - Brawling drug to combine all the favourable effects to one consumable.-->
-	<!-- 																					   -->
-	<append xpath="/recipes">
-	
-		<recipe name="drugBrawling" count="2" craft_time="10" tags="learnable">
-			<ingredient name="drugHealthBar" count="2"/>
-			<ingredient name="drugSkullCrushers" count="2"/>
-			<ingredient name="drugFortBites" count="6"/>
-			<ingredient name="drugSteroids" count="1"/>
-			<ingredient name="drugPainkillers" count="4"/>
-			<ingredient name="drugVitamins" count="1"/>
-			<ingredient name="drinkJarBeer" count="8"/>
-		</recipe>
-	
-	</append>
-	
-	<!-- Make a few recipes' crafting times SENsible.-->
-	<setattribute xpath="/recipes/recipe[@name='chemistryStation']" name="craft_time">60</setattribute>
-	<setattribute xpath="/recipes/recipe[@name='drugFortBites']" name="craft_time">60</setattribute>
-
 </configs>

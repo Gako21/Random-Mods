@@ -1,11 +1,51 @@
 <configs>
 
-	<!-- BRAWLING BUZZ - Brawling drug to combine all the favourable effects to one consumable.-->
-	<!-- 																					   -->
-	<append xpath="/progression/perks/perk[@name='perkBarBrawling7BoozedUp']/effect_group">
+	<!-- BRAWLING BUZZ (items, localization, recipes) - Brawling drug to combine all the favourable effects to one consumable.-->
+	<!-- 																					   								  -->
+		<append xpath="/progression/perks/perk[@name='perkBarBrawling7BoozedUp']/effect_group">
 
-		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1" value="1" tags="drugBrawling"/>
+			<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1" value="1" tags="drugBrawling"/>
 
-	</append>
+		</append>
+
+	<!-- MODDAMAGE (items)  - Set the cVar that is required for different mod damages in items.xml -->
+	<!-- 																				   		   -->
+		<append xpath="/progression/perks/perk[@name='perkMiner69r']/effect_group">
+		
+			<triggered_effect trigger="onPerkLevelChanged" action="ModifyCVar" cvar="ModPower" target="self" operation="set" value="1">
+				<requirement name="ProgressionLevel" progression_name="perkMiner69r" operation="Equals" value="1"/>
+			</triggered_effect>
+			<triggered_effect trigger="onPerkLevelChanged" action="ModifyCVar" cvar="ModPower" target="self" operation="set" value="2">
+				<requirement name="ProgressionLevel" progression_name="perkMiner69r" operation="Equals" value="2"/>
+			</triggered_effect>
+			<triggered_effect trigger="onPerkLevelChanged" action="ModifyCVar" cvar="ModPower" target="self" operation="set" value="3">
+				<requirement name="ProgressionLevel" progression_name="perkMiner69r" operation="Equals" value="3"/>
+			</triggered_effect>
+			<triggered_effect trigger="onPerkLevelChanged" action="ModifyCVar" cvar="ModPower" target="self" operation="set" value="4">
+				<requirement name="ProgressionLevel" progression_name="perkMiner69r" operation="Equals" value="4"/>
+			</triggered_effect>
+			<triggered_effect trigger="onPerkLevelChanged" action="ModifyCVar" cvar="ModPower" target="self" operation="set" value="5">
+				<requirement name="ProgressionLevel" progression_name="perkMiner69r" operation="Equals" value="5"/>
+			</triggered_effect>
+		
+		</append>
+	
+	<!-- Unlocks a recipe when both perks are at final level. -->
+	<!-- 													  -->
+		<append xpath="/progression/perks/perk[@name='perkAdvancedEngineering']/effect_group">
+			<triggered_effect trigger="onPerkLevelChanged" action="ModifyCVar" cvar="resourceWoodBundle" target="self" operation="set" value="0"/>
+			<triggered_effect trigger="onPerkLevelChanged" action="ModifyCVar" cvar="resourceWoodBundle" target="self" operation="set" value="1">
+				<requirement name="ProgressionLevel" progression_name="perkAdvancedEngineering" operation="Equals" value="5"/>
+				<requirement name="ProgressionLevel" progression_name="perkPummelPete" operation="Equals" value="5"/>
+			</triggered_effect>
+		</append>
+		
+		<append xpath="/progression/perks/perk[@name='perkPummelPete']/effect_group">
+			<triggered_effect trigger="onPerkLevelChanged" action="ModifyCVar" cvar="resourceWoodBundle" target="self" operation="set" value="0"/>
+			<triggered_effect trigger="onPerkLevelChanged" action="ModifyCVar" cvar="resourceWoodBundle" target="self" operation="set" value="1">
+				<requirement name="ProgressionLevel" progression_name="perkAdvancedEngineering" operation="Equals" value="5"/>
+				<requirement name="ProgressionLevel" progression_name="perkPummelPete" operation="Equals" value="5"/>
+			</triggered_effect>
+		</append>
 	
 </configs>

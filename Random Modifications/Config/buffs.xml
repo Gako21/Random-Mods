@@ -1,11 +1,56 @@
 <configs>
 
+	<!-- ONLY CRAFT ONCE (entityclasses) - Make an item only craftable once. Also add tags="learnable" on the desired item. -->
+	<!--																												    -->
+		<append xpath="/buffs/buff[@name='buffStatusCheck02']/effect_group[1]">
+		
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="campfire" operation="set" value="0">
+				<requirement name="PlayerItemCount" item_name="campfire" operation="Equals" value="1"/></triggered_effect>
+				
+		</append>
+
+	<!-- Kill every zombie right before the blood moon starts. -->
+	<!-- 										  			   -->
+		<append xpath="/buffs/buff[@name='buffStatusCheck01']/effect_group">
+			
+			<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="selfAOE" range="5000" buff="KillEmAll">
+				<requirement name="TimeOfDay" operation="GTE" value="2200"/>
+				<requirement name="TimeOfDay" operation="LT" value="2201"/>
+				<requirement name="IsBloodMoon" operation="Equals" value="1"/>
+			</triggered_effect>
+			
+		</append>
+		<append xpath="/buffs">
+			
+			<buff name="KillEmAll" hidden="true">
+				<damage_source value="internal"/>
+				<damage_type value="suffocation"/>
+				<duration value="10"/>
+				<effect_group>
+					<passive_effect name="HealthChangeOT" operation="base_add" value="-2000"/>
+				</effect_group>
+			</buff>
+			
+		</append>
+	
 	<!-- Set Pummel Pete bonus last for a bit longer. -->
 	<!-- 											  -->
-	<set xpath="/buffs/buff[@name='buffPerkPummelPete']/duration/@value">5</set>
+	
+		<set xpath="/buffs/buff[@name='buffPerkPummelPete']/duration/@value">5</set>
+	
+	<!-- Set the stamina/health/food/water gain double for levelup. -->
+	<!-- 															-->
+		<insertAfter xpath="/buffs/buff[@name='buffStatusCheck01']/effect_group/triggered_effect[@value='@$LastPlayerLevel']">
 
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$PlayerLevelBonus" operation="multiply" value="2"/>
+
+		</insertAfter>
+
+		<set xpath="buffs/buff[@name='buffStatusCheck01']/effect_group/triggered_effect[@value='100']/@value">200</set>
+		<set xpath="buffs/buff[@name='buffStatusCheck01']/effect_group/triggered_effect[@value='-1']/@value">-2</set>
+	
 	<!-- Reduce the water consumption of painkillers. -->
 	<!-- 											  -->
-	<set xpath="/buffs/buff[@name='buffDrugPainkillers']/effect_group/passive_effect[@name='WaterChangeOT']/@value">0.109</set>
+		<set xpath="/buffs/buff[@name='buffDrugPainkillers']/effect_group/passive_effect[@name='WaterChangeOT']/@value">0.109</set>
 	
 </configs>

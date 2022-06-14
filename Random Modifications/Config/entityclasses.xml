@@ -1,7 +1,57 @@
 <configs>
 
+	<!-- ONLY CRAFT ONCE (buffs) - Make an item only craftable once. -->
+	<!-- 													 		 -->
+		<append xpath="/entity_classes/entity_class[@name='playerMale']/effect_group[1]">
+		
+		<triggered_effect trigger="onSelfFirstSpawn" action="ModifyCVar" cvar="campfire" operation="set" value="1"/>
+		
+		</append>
+
+	<!-- ZOMBIE INFECTION (items) - Make zombies give infection on every hit -->
+	<!--															 		 -->
+		<setattribute xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='BuffResistance']" name="tags">buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire
+		</setattribute>
+
+	<!-- Remove the food consumption when healing damage. -->
+	<!-- 												  	  -->
+		<append xpath="/entity_classes/entity_class[@name='playerMale']/effect_group[1]">
+		
+			<passive_effect name="FoodLossPerHealthPointGained" operation="base_set" value="0"/>
+		
+		</append>	
+	
+	<!-- Make Jen look the old way. Doesn't work anymore in A20. =[ -->
+	<!-- 						   									-->
+		<set xpath="/entity_classes/entity_class[@name='npcTraderJen']/property[@name='Mesh']/@value">#Entities/Traders?JenLungRagdoll.prefab</set>
+	
+	<!-- Make Stripper Zombies look the old way. -->
+	<!-- 										 -->
+		<set xpath="/entity_classes/entity_class[@name='zombieStripper' or @name='zombieStripperFeral']/property[@name='Mesh']/@value">#Entities/Zombies?Zombies/zombieStandardStripperRagdoll.prefab</set>
+	
+	<!-- Set exp from harvesting to zero. -->
+	<!-- 								  -->
+		<append xpath="/entity_classes/entity_class[@name='playerMale']/effect_group[last()]">
+		
+			<passive_effect name="PlayerExpGain" operation="base_set" value="0" tags="Harvesting"/>
+		
+		</append>
+	
 	<!-- Set animal bodies stay for 30 minutes after killed for harvest.-->
 	<!-- 																-->
-	<set xpath="/entity_classes/entity_class[contains(@name, 'animal')]/property[@name='TimeStayAfterDeath']/@value">1800</set>
+		<set xpath="/entity_classes/entity_class[contains(@name, 'animal')]/property[@name='TimeStayAfterDeath']/@value">1800</set>
+	
+	<!-- Set the player to ragdoll if they use a ranged weapon on a screamer, with a hint to hit it instead. -->
+	<!-- 																									 -->
+		<append xpath="/entity_classes/entity_class[contains(@name, 'Screamer')]/property[@name='Tags']/@value">,screamer</append>
+		
+		<append xpath="/entity_classes/entity_class[@name='playerMale']">
+			<effect_group>
+				<requirement name="HoldingItemHasTags" tags="ranged"/>
+				<requirement name="EntityTagCompare" target="other" tags="screamer"/>
+				<triggered_effect trigger="onSelfAttackedOther" target="self" action="Ragdoll" force="50"/>
+				<triggered_effect trigger="onSelfAttackedOther" target="self" action="ShowToolbeltMessage" message="Hit it!"/>
+			</effect_group>
+		</append>
 	
 </configs>
