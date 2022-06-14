@@ -6,16 +6,26 @@ This mod folder is a compilation of the various small modlets I've created due t
   - Added a brawling drug to combine the effects of multiple drugs.
   - Added an exp gun with ammo to give experience to other players.
   - Added a dev item that instantly destroys blocks and gives you the resources from it too.
+  - Added a way to set an item to be crafted only once.
+  - Added a buff that kills all zombies just before the blood moon starts.
 - Changed
   - Fixed Nerdy Glasses increased exp when upgrading.
   - Set crafting resource stacks to give one experience.
   - Made a few recipes more sensitive time-wise.
   - Set Pummel Pete's damage bonus last a bit longer.
-  - Reduced the water consumption of painkillers .
+  - Reduced the water consumption of painkillers.
   - Increased the time dead animals stay on the ground.
   - Recolored the dyes.
   - Set rockets go through bars.
   - Allowed selling items in vending machines.
+  - Haybales are now mines.
+  - Haybales and wood spikes are indestructable and pickable.
+  - Seeds are more durable and repairable.
+  - Set stamina/health/food/water increase double.
+  - Set zombies inflict infection with every hit.
+  - Set the stripper zombie look the old way.
+  - Set exp from harvesting to zero.
 - Removed
   - Removed crosshairs while aiming.
   - Removed biome restrictions from starting trader quest and trade routes.
+  - Removed food consumption when healing damage.
