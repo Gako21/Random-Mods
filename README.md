@@ -30,10 +30,12 @@ This mod folder is a compilation of the various small modlets I've created due t
   - Set animal bodies stay longer on the ground.
   - Recolour the dyes.
   - Set sledgehammers to shock zombies around the target.
-  - Set enemies hitting you with a Swat helmet to have a chance to get shocked.
+  - Set enemies hitting you with a SWAT helmet to have a chance to get shocked.
   - Changed the stack size.
   - Changed the loot in birdnests.
 - Removed
   - Removed crosshairs while aiming.
   - Removed biome restrictions from starting trader quest and trade routes.
   - Removed food consumption when healing damage.
+
+This mod compilation will most likely be useful if you are looking on examples of how to do some modifications similar to a one listed above. In actual gameplay some changes may prove useful whereas other are either indifferent (SWAT helmet mod) or even negative (Haybale mines). However, if you want to make your life more chaotic, go for it! It's all there for you to use freely.
