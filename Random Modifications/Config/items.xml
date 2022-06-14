@@ -99,13 +99,28 @@
 	
 	<append xpath="/items">
 		<item name="ExpPewPewGun">
-			<property name="Extends" value="gunToolDiggerAdmin"/>
+			<property name="Extends" value="gunHandgunT3SMG5"/>
+			<property name="CustomIcon" value="gunHandgunT3SMG5"/>
 			<property name="CustomIconTint" value="40,40,40"/>
+			<property class="Action0">
+				<property name="Class" value="Launcher"/>
+				<property name="Hitmask_override" value="Bullet"/>
+				<property name="Magazine_items" value="ammo10kExp,ammo50kExp,ammo200kExp,ammo1mExp"/>
+				<property name="Reload_time" value="1"/>
+				<property name="Particles_muzzle_fire" value="nozzleflashuzi"/>
+				<property name="Particles_muzzle_smoke" value="nozzlesmokeuzi"/>
+				<property name="Sound_start" value=""/>
+				<property name="Sound_repeat" value=""/>
+				<property name="Sound_end" value=""/>
+				<property name="Sound_empty" value="dryfire"/>
+				<property name="Sound_reload" value=""/>
+			</property>
 			<effect_group>
 				<passive_effect name="RoundsPerMinute" operation="base_set" value="450"/>
-				<passive_effect name="BurstRoundCount" operation="base_set" value="1000"/>
+				<passive_effect name="BurstRoundCount" operation="base_set" value="1"/>
 				<passive_effect name="EntityDamage" operation="base_set" value="0"/>
 				<passive_effect name="BlockDamage" operation="base_set" value="0"/>
+				<passive_effect name="MagazineSize" operation="base_set" value="10"/>
 				<passive_effect name="MaxRange" operation="base_set" value="200"/>
 				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="0"/>
 				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="0"/>
@@ -117,16 +132,80 @@
 				<passive_effect name="KickDegreesVerticalMax" operation="base_set" value="0"/>
 				<passive_effect name="KickDegreesHorizontalMin" operation="base_set" value="0"/>
 				<passive_effect name="KickDegreesHorizontalMax" operation="base_set" value="0"/>
-				<passive_effect name="DegradationMax" operation="base_set" value="9999" tags="admin"/>
-				<passive_effect name="DegradationPerUse" operation="base_set" value="0" tags="admin"/>
+				<passive_effect name="DegradationMax" operation="base_set" value="9999"/>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="0"/>
 				<passive_effect name="ModSlots" operation="base_set" value="0"/>
-				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="GiveExp" target="other" value="1000"/>
-				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyStats" target="other" stat="health" operation="add" value="1"/>
 			</effect_group>
 		</item>
+		
+		<!-- Exp ammo go weeeee -->
+		
+		<item name="ammo10kExp">
+			<property name="Extends" value="ammoArrowIron"/>
+			<property name="Tags" value="ammo"/>
+			<property name="CustomIcon" value="ammo9mmBulletBall"/>
+			<property name="CustomIconTint" value="6, 31, 242"/>
+			<property name="DisplayType" value="ammoArrow"/>
+			<property name="Meshfile" value="#Other/Items?Weapons/Ranged/Bows/Arrows/bolt_stonePrefab.prefab"/>
+			<property name="HoldType" value="45"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mbrass"/>
+			<property name="Stacknumber" value="1000"/>
+			<property name="EconomicValue" value="1"/>
+			<property name="EconomicBundleSize" value="1000"/>
+			<property name="Group" value="Ammo"/>
+			<property name="IsSticky" value="false"/>
+			<property class="Action1">
+				<property name="Gravity" value="-5"/>
+			</property>
+			<effect_group name="Exp10K" tiered="false">
+				<passive_effect name="EntityDamage" operation="base_set" value="0"/>
+				<passive_effect name="BlockDamage" operation="base_set" value="0"/>
+				<passive_effect name="ProjectileVelocity" operation="base_set" value="1000"/>
+				<triggered_effect trigger="onProjectileImpact" action="ModifyStats" target="other" stat="Health" operation="add" value="1"/>
+				<triggered_effect trigger="onProjectileImpact" action="GiveExp" target="other" value="10000"/>
+			</effect_group>
+		</item>
+		
+		<item name="ammo50kExp">
+			<property name="Extends" value="ammo10kExp"/>
+			<property name="CustomIconTint" value="219, 15, 15"/>
+			<effect_group name="Exp50K" tiered="false">
+				<passive_effect name="EntityDamage" operation="base_set" value="0"/>
+				<passive_effect name="BlockDamage" operation="base_set" value="0"/>
+				<passive_effect name="ProjectileVelocity" operation="base_set" value="1000"/>
+				<triggered_effect trigger="onProjectileImpact" action="ModifyStats" target="other" stat="Health" operation="add" value="1"/>
+				<triggered_effect trigger="onProjectileImpact" action="GiveExp" target="other" value="50000"/>
+			</effect_group>
+		</item>
+		
+		<item name="ammo200kExp">
+			<property name="Extends" value="ammo10kExp"/>
+			<effect_group name="Exp200K" tiered="false">
+			<property name="CustomIconTint" value="255, 255, 0"/>
+				<passive_effect name="EntityDamage" operation="base_set" value="0"/>
+				<passive_effect name="BlockDamage" operation="base_set" value="0"/>
+				<passive_effect name="ProjectileVelocity" operation="base_set" value="1000"/>
+				<triggered_effect trigger="onProjectileImpact" action="ModifyStats" target="other" stat="Health" operation="add" value="1"/>
+				<triggered_effect trigger="onProjectileImpact" action="GiveExp" target="other" value="200000"/>
+			</effect_group>
+		</item>
+		
+		<item name="ammo1mExp">
+			<property name="Extends" value="ammo10kExp"/>
+			<effect_group name="Exp100K" tiered="false">
+			<property name="CustomIconTint" value="255, 0, 102"/>
+				<passive_effect name="EntityDamage" operation="base_set" value="0"/>
+				<passive_effect name="BlockDamage" operation="base_set" value="0"/>
+				<passive_effect name="ProjectileVelocity" operation="base_set" value="1000"/>
+				<triggered_effect trigger="onProjectileImpact" action="ModifyStats" target="other" stat="Health" operation="add" value="1"/>
+				<triggered_effect trigger="onProjectileImpact" action="GiveExp" target="other" value="1000000"/>
+			</effect_group>
+		</item>
+		
 	</append>
 	
-	<!-- Add a new dev item that destroyes and gives you the good stuff -->
+	<!-- Add a new dev item that destroys and gives you the good stuff -->
 	<!-- 																-->
 	<append xpath="/items">
 		<item name="CombineHarvester">

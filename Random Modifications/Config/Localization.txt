@@ -1,3 +1,12 @@
 Key,File,Type,UsedInMainMenu,NoTranslate,english,Context / Alternate Text,german,latam,french,italian,japanese,koreana,polish,brazilian,russian,turkish,schinese,tchinese,spanish
 drugBrawling,items,Drug,,,Brawler's Buzz,,,,,,,,,,,,,,
 drugBrawlingDesc,items,Drug,,,"Gives all the bonuses of Vitamins, Painkillers, Steroids, Fort Bites, Beer, Health Bar and Skull Crushers for 12 minutes.",,,,,,,,,,,,,,
+ExpPewPewGunDesc,items,Gun,,,"Shoot your friends to give them some of that sweet exp. Can be loaded with four different ammo types for different exp gains. Experience required to get to level 60 is about 3 360 000 and 178 000 for each level after that.",,,,,,,,,,,,,,
+ammo10kExp,items,Gun,,,Exp Gun Ammo 10k,,,,,,,,,,,,,,
+ammo10kExpDesc,items,Gun,,,"Gives the target 10 000 exp, just below what's required for the first levels.",,,,,,,,,,,,,,
+ammo50kExp,items,Gun,,,Exp Gun Ammo 50k,,,,,,,,,,,,,,
+ammo50kExpDesc,items,Gun,,,"Gives the target 50 000 exp, gets you to level 5.",,,,,,,,,,,,,,
+ammo200kExp,items,Gun,,,Exp Gun Ammo 178k,,,,,,,,,,,,,,
+ammo200kExpDesc,items,Gun,,,"Gives the target 178 000 exp, gets you to level 13.",,,,,,,,,,,,,,
+ammo1mExp,items,Gun,,,Exp Gun Ammo 1m,,,,,,,,,,,,,,
+ammo1mExpDesc,items,Gun,,,"Gives the target 1 000 000 exp, gets you to level 37.",,,,,,,,,,,,,,
