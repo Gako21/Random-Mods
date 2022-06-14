@@ -8,6 +8,8 @@ This mod folder is a compilation of the various small modlets I've created due t
   - Added a dev item that instantly destroys blocks and gives you the resources from it too.
   - Added a way to set an item to be crafted only once.
   - Added a buff that kills all zombies just before the blood moon starts.
+  - Added a way to unlock a recipe when two perks are at a certain level.
+  - Added blessed metal to the level 5 secret stash.
 - Changed
   - Fixed Nerdy Glasses increased exp when upgrading.
   - Set crafting resource stacks to give one experience.
@@ -25,6 +27,12 @@ This mod folder is a compilation of the various small modlets I've created due t
   - Set zombies inflict infection with every hit.
   - Set the stripper zombie look the old way.
   - Set exp from harvesting to zero.
+  - Set animal bodies stay longer on the ground.
+  - Recolour the dyes.
+  - Set sledgehammers to shock zombies around the target.
+  - Set enemies hitting you with a Swat helmet to have a chance to get shocked.
+  - Changed the stack size.
+  - Changed the loot in birdnests.
 - Removed
   - Removed crosshairs while aiming.
   - Removed biome restrictions from starting trader quest and trade routes.
