@@ -33,6 +33,7 @@ This mod folder is a compilation of the various small modlets I've created due t
   - Set enemies hitting you with a SWAT helmet to have a chance to get shocked.
   - Changed the stack size.
   - Changed the loot in birdnests.
+  - Set all zombies be demolitioners
 - Removed
   - Removed crosshairs while aiming.
   - Removed biome restrictions from starting trader quest and trade routes.
