@@ -1,0 +1,11 @@
+<configs>
+
+	<append xpath="/entitygroups/entitygroup/entity[starts-with(@name, 'zombie')]/..">
+	
+		<entity name="zombieDemolition"/>
+		
+	</append>
+
+	<remove xpath="/entitygroups/entitygroup/entity[starts-with(@name, 'zombie')][not(@name='zombieDemolition')]"/>
+
+</configs>
