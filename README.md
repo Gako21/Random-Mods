@@ -41,6 +41,6 @@ This mod folder is a compilation of the various small modlets I've created due t
 
 This mod compilation will most likely be useful if you are looking on examples of how to do some modifications similar to a one listed above. In actual gameplay some changes may prove useful whereas other are either indifferent (SWAT helmet mod) or even negative (Haybale mines). However, if you want to make your life more chaotic, go for it! It's all there for you to use freely.
 
-##Mods too big for github##
-####[Hunger Games](https://bit.ly/3ce4hPi)####
+## Mods too big for github
+#### [Hunger Games](https://bit.ly/3ce4hPi)
 - A mod that creates a battle royale type of gameplay. Players are placed in the outskirts of a custom map and pushed near the centre periodically.
