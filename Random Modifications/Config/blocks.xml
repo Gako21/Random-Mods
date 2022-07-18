@@ -60,5 +60,35 @@
 		<append xpath="/blocks/block[contains(@name, 'HarvestPlayer')]">
 			<property class="RepairItems"> <property name="resourceYuccaFibers" value="1"/> </property>
 		</append>
+		
+	<!-- Make locked containers not get destroyed when they fall. Most of the time at least. -->
+	<!-- 														  							 -->
+	
+	<!-- Reinforced Chest -->
+	<set xpath="/blocks/block[@name='cntLootChestHero']/drop[@event='Fall']/@name">cntLootChestHero</set>
+	<set xpath="/blocks/block[@name='cntLootChestHero']/drop[@event='Fall']/@prob">1</set>
+	<append xpath="/blocks/block[@name='cntLootChestHeroInsecure']">
+		<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+	</append>
+	
+	<!-- T4 Hardened Chest -->
+	<set xpath="/blocks/block[@name='cntHardenedChestSecure']/drop[@event='Fall']/@name">cntHardenedChestSecure</set>
+	<set xpath="/blocks/block[@name='cntHardenedChestSecure']/drop[@event='Fall']/@prob">1</set>
+	
+	<!-- T5 Hardened Chest -->
+	<append xpath="/blocks/block[@name='cntHardenedChestSecureT5']">
+		<drop event="Fall" name="cntHardenedChestSecureT5" count="1" prob="1" stick_chance="1"/>
+	</append>
+	
+	<!-- Gun Safe -->
+	<set xpath="/blocks/block[@name='cntGunSafe']/drop[@event='Fall']/@name">cntGunSafe</set>
+	<set xpath="/blocks/block[@name='cntGunSafe']/drop[@event='Fall']/@prob">1</set>
+	
+	<!-- Wall/Desk Safe -->
+	<set xpath="/blocks/block[@name='cntWallSafe']/drop[@event='Fall']/@name">cntWallSafe</set>
+	<set xpath="/blocks/block[@name='cntWallSafe']/drop[@event='Fall']/@prob">1</set>
+	<append xpath="/blocks/block[@name='cntDeskSafe']">
+		<drop event="Fall" name="cntDeskSafe" count="1" prob="1" stick_chance="1"/>
+	</append>
 
 </configs>
