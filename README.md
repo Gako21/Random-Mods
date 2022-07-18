@@ -34,6 +34,7 @@ This mod folder is a compilation of the various small modlets I've created due t
   - Changed the stack size.
   - Changed the loot in birdnests.
   - Set all zombies be demolitioners
+  - Set most lockable containers not to destroy themselves when they fall. Most of the time. 
 - Removed
   - Removed crosshairs while aiming.
   - Removed biome restrictions from starting trader quest and trade routes.
