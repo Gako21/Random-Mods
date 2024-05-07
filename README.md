@@ -1,4 +1,4 @@
-# 7DtD-Mods
+# Random-Mods
 This mod folder is a compilation of the various small modlets I've created due to various reasons. They should be compatible with each other but you'll probably get the most of it if you choose the modifications you want inside the files. I've tried to make it clear which parts are for which features so clipping and adding it to your own files should be easy. If the header has a name in uppercase letters, it means there are other snippets of code in other files that are required for it to work. These specific files are defined next to the name.
 
 ### Short list of features
