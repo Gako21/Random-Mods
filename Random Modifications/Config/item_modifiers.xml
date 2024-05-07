@@ -15,4 +15,20 @@
 	<!-- 									  -->
 		<set xpath="/item_modifiers/item_modifier[@name='modVehicleSuperCharger']/effect_group/passive_effect/@value">1.4</set>
 		
+	<!-- 100 METER YEETER (buffs) - Make a mod similar to the repulsor mod for all melee. -->
+	<!-- 																				  -->
+		<append xpath="/item_modifiers">
+		
+			<item_modifier name="modMelee100MeterYeeter" installable_tags="melee" modifier_tags="knockback" blocked_tags="noMods" type="attachment">
+			
+				<property name="Extends" value="modGeneralMaster"/>
+				<effect_group tiered="false">
+						<triggered_effect trigger="onSelfEquipStart" action="AddBuff" buff="buffmodMelee100MeterYeeter"/>
+						<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" buff="buffmodMelee100MeterYeeter"/>
+				</effect_group>
+				
+			</item_modifier>	
+			
+		</append>
+		
 </configs>

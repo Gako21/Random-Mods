@@ -2,14 +2,13 @@
 
 	<!-- Make rockets go through bars. OP? Perhaps. -->
 	<!-- 											-->
-		<set xpath="/blocks/block[@name='woodBarsCentered']/property[@name='Collide']/@value">movement,melee</set>
 		<set xpath="/blocks/block[@name='ironBarsCentered']/property[@name='Collide']/@value">movement,melee</set>
-	
+		
 	<!-- Make haybales act as mines. Why? For the glory of Satan of course! -->
 	<!-- 																	-->
-		<setattribute xpath="/blocks/block[@name='hayBaleBlock']/property[@name='Material']" name="value">MLandMine</setattribute>
+		<setattribute xpath="/blocks/block[@name='hayBaleSquare']/property[@name='Material']" name="value">MLandMine</setattribute>
 		
-		<append xpath="/blocks/block[@name='hayBaleBlock']">
+		<append xpath="/blocks/block[@name='hayBaleSquare']">
 		
 			<property name="Tags" value="Mine"/>
 			<property name="ItemTypeIcon" value="explosion"/>
@@ -64,31 +63,83 @@
 	<!-- Make locked containers not get destroyed when they fall. Most of the time at least. -->
 	<!-- 														  							 -->
 	
-	<!-- Reinforced Chest -->
-	<set xpath="/blocks/block[@name='cntLootChestHero']/drop[@event='Fall']/@name">cntLootChestHero</set>
-	<set xpath="/blocks/block[@name='cntLootChestHero']/drop[@event='Fall']/@prob">1</set>
-	<append xpath="/blocks/block[@name='cntLootChestHeroInsecure']">
-		<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
-	</append>
-	
-	<!-- T4 Hardened Chest -->
-	<set xpath="/blocks/block[@name='cntHardenedChestSecure']/drop[@event='Fall']/@name">cntHardenedChestSecure</set>
-	<set xpath="/blocks/block[@name='cntHardenedChestSecure']/drop[@event='Fall']/@prob">1</set>
-	
-	<!-- T5 Hardened Chest -->
-	<append xpath="/blocks/block[@name='cntHardenedChestSecureT5']">
-		<drop event="Fall" name="cntHardenedChestSecureT5" count="1" prob="1" stick_chance="1"/>
-	</append>
-	
-	<!-- Gun Safe -->
-	<set xpath="/blocks/block[@name='cntGunSafe']/drop[@event='Fall']/@name">cntGunSafe</set>
-	<set xpath="/blocks/block[@name='cntGunSafe']/drop[@event='Fall']/@prob">1</set>
-	
-	<!-- Wall/Desk Safe -->
-	<set xpath="/blocks/block[@name='cntWallSafe']/drop[@event='Fall']/@name">cntWallSafe</set>
-	<set xpath="/blocks/block[@name='cntWallSafe']/drop[@event='Fall']/@prob">1</set>
-	<append xpath="/blocks/block[@name='cntDeskSafe']">
-		<drop event="Fall" name="cntDeskSafe" count="1" prob="1" stick_chance="1"/>
-	</append>
+		<!-- Reinforced Chest -->
+		<set xpath="/blocks/block[@name='cntLootChestHero']/drop[@event='Fall']/@name">cntLootChestHero</set>
+		<set xpath="/blocks/block[@name='cntLootChestHero']/drop[@event='Fall']/@prob">1</set>
+		<append xpath="/blocks/block[@name='cntLootChestHeroInsecure']">
+			<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+		</append>
+		
+		<!-- T4 Hardened Chest -->
+		<set xpath="/blocks/block[@name='cntHardenedChestSecure']/drop[@event='Fall']/@name">cntHardenedChestSecure</set>
+		<set xpath="/blocks/block[@name='cntHardenedChestSecure']/drop[@event='Fall']/@prob">1</set>
+		
+		<!-- T5 Hardened Chest -->
+		<append xpath="/blocks/block[@name='cntHardenedChestSecureT5']">
+			<drop event="Fall" name="cntHardenedChestSecureT5" count="1" prob="1" stick_chance="1"/>
+		</append>
+		
+		<!-- Gun Safe -->
+		<set xpath="/blocks/block[@name='cntGunSafe']/drop[@event='Fall']/@name">cntGunSafe</set>
+		<set xpath="/blocks/block[@name='cntGunSafe']/drop[@event='Fall']/@prob">1</set>
+		
+		<!-- Wall/Desk Safe -->
+		<set xpath="/blocks/block[@name='cntWallSafe']/drop[@event='Fall']/@name">cntWallSafe</set>
+		<set xpath="/blocks/block[@name='cntWallSafe']/drop[@event='Fall']/@prob">1</set>
+		<append xpath="/blocks/block[@name='cntDeskSafe']">
+			<drop event="Fall" name="cntDeskSafe" count="1" prob="1" stick_chance="1"/>
+		</append>
+		
+	<!-- Make a new mattress that negates all fall damage. Mainly for POIs, hence the name. -->
+	<!-- 																					-->
+		<append xpath="/blocks">
+			<block name="mattressFlatThinPOI">
+				<property name="Material" value="Mfurniture"/>
+				<property name="Shape" value="ModelEntity"/>
+				<property name="Model" value="Entities/Furniture/mattressFlatPrefab"/>
+				<property name="Texture" value="282"/>
+				<property name="IsTerrainDecoration" value="true"/>
+				<property name="FallDamage" value="0"/>
+				<property name="FuelValue" value="12"/>
+				<drop event="Harvest" name="resourceCloth" count="2" tag="allHarvest"/>
+				<drop event="Destroy" count="0"/>
+				<property name="EconomicValue" value="60"/> <!-- disassemble value -->
+				<property name="FilterTags" value="MC_building,SC_decor"/>
+				<property name="DescriptionKey" value="mattressFlatThin"/>
+				<property name="CustomIcon" value="mattressFlatThin"/>
+			</block>
+		</append>
+		
+	<!-- REBAR FRAMES (Localization, materials, recipes) - Make rebar frames great again. -->
+	<!-- 																				  -->
+		<append xpath="/blocks">
+			<block name="rebarShapes" shapes="All">
+				<property name="Group" value="Building,advBuilding"/>
+				<property name="DescriptionKey" value="brickGroupDesc"/>
+				<property name="Material" value="Mrebar_shapes"/>
+				<property name="Weight" value="10"/>
+				<property name="Texture" value="194"/>
+				<property name="UiBackgroundTexture" value="194"/>
+				<property name="CreativeMode" value="Player"/>
+				<property class="RepairItems">
+					<property name="resourceScrapIron" value="5"/>
+				</property>
+				<drop event="Harvest" name="resourceScrapIron" count="10" tag="allHarvest"/>
+				<drop event="Destroy" count="0"/>
+				<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+				<property name="EconomicValue" value="8"/>
+				<property name="EconomicBundleSize" value="20"/>
+				<property name="FilterTags" value="MC_Shapes"/>
+				<property name="SortOrder1" value="0007"/>
+				<property class="UpgradeBlock">
+					<property name="ToBlock" value="concreteShapes"/>
+					<property name="Item" value="resourceConcreteMix"/>
+					<property name="ItemCount" value="10"/>
+					<property name="UpgradeHitCount" value="4"/>
+				</property>
+				<property name="CustomUpgradeSound" value="place_block_concrete"/>
+				<property name="CanPickup" value="true"/>
+			</block>
+		</append>
 
 </configs>

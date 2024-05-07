@@ -52,5 +52,140 @@
 	<!-- Reduce the water consumption of painkillers. -->
 	<!-- 											  -->
 		<set xpath="/buffs/buff[@name='buffDrugPainkillers']/effect_group/passive_effect[@name='WaterChangeOT']/@value">0.109</set>
+		
+	<!-- 100 METER YEETER (item_modifiers) - Make a mod similar to the repulsor mod for all melee weapons.-->
+	<!-- 															  									  -->
+		<append xpath="/buffs">
+			<buff name="buffmodMelee100MeterYeeter" hidden="true">
+				<stack_type value="ignore"/><duration value="0"/>
+			</buff>
+		</append>
+		
+		<append xpath="/buffs/buff[@name='buffStatusCheck02']">
+			<effect_group>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="Ragdoll" target="other" duration="4" force="150000">
+					<requirement name="HasBuff" buff="buffmodMelee100MeterYeeter"/>
+					<requirement name="!EntityTagCompare" target="other" tags="trader"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="Ragdoll" target="other" duration="4" force="150000">
+					<requirement name="HasBuff" buff="buffmodMelee100MeterYeeter"/>
+					<requirement name="!EntityTagCompare" target="other" tags="trader"/>
+				</triggered_effect>
+			</effect_group>
+		</append>
 	
+	
+	<!-- RESET ALL (entityclasses) - Reset everything when dead. -->
+	<!-- 														 -->
+	
+		<append xpath="/buffs" >
+		
+			<buff name="buffResetLevel" hidden="true">
+				<stack_type value="ignore"/>
+				<duration value="1"/>
+				
+				<effect_group>
+					<triggered_effect trigger="onSelfBuffStart" action="ResetProgression" reset_skills="true" reset_levels="true" reset_books="true" reset_crafting="true"/>
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$PlayerLevelBonus" operation="set" value="0"/>
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$LastPlayerLevel" operation="set" value="0"/>
+					<passive_effect name="HealthMax" operation="base_set" value="100"/>
+					<passive_effect name="StaminaMax" operation="base_set" value="100"/>
+					<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffPerkAbilityUpdate"/>
+					<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffDeathFoodDrinkAdjust"/>
+				</effect_group>
+			</buff>
+			
+		</append>
+	
+	
+	<!-- SLOWLY HEALING LIMBS (Localization) - Add progressive effect on sprained and broken limbs. -->
+	<!-- 													  										-->
+	
+		<!-- Sprained leg -->
+		<append xpath="/buffs/buff[@name='buffLegSprained']/effect_group/passive_effect[@name='Mobility']/..">
+			
+			<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".LegHurtMobility" operation="set" value="@$legHurtCounter"/>
+			<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".LegHurtMobility" operation="divide" value="4000"/>
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".LegHurtMobility" operation="set" value="@$legHurtCounter"/>
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".LegHurtMobility" operation="divide" value="4000"/>
+			
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".LegHurtMobilityDisplay" operation="set" value="@$legHurtCounter"/>
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".LegHurtMobilityDisplay" operation="divide" value="40"/>
+			
+			<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".LegHurtMobility" operation="set" value="0"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".LegHurtMobilityDisplay" operation="set" value="0"/>
+			
+		</append>
+		
+		<set xpath="/buffs/buff[@name='buffLegSprained']/effect_group/passive_effect[@name='Mobility']/@value">@.LegHurtMobility</set>	
+		<set xpath="/buffs/buff[@name='buffLegSprained']/effect_group/passive_effect[@name='Mobility']/@operation">base_subtract</set>
+		
+		<!-- Broken leg -->
+		<append xpath="/buffs/buff[@name='buffLegBroken']/effect_group/passive_effect[@name='Mobility']/..">
+			
+			<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".LegBrokenMobility" operation="set" value="@$legHurtCounter"/>
+			<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".LegBrokenMobility" operation="divide" value="14400"/>
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".LegBrokenMobility" operation="set" value="@$legHurtCounter"/>
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".LegBrokenMobility" operation="divide" value="14400"/>
+			
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".LegBrokenMobilityDisplay" operation="set" value="@$legHurtCounter"/>
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".LegBrokenMobilityDisplay" operation="divide" value="144"/>
+			
+			<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".LegBrokenMobility" operation="set" value="0"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".LegBrokenMobilityDisplay" operation="set" value="0"/>
+			
+		</append>
+		
+		<set xpath="/buffs/buff[@name='buffLegBroken']/effect_group/passive_effect[@name='Mobility']/@value">@.LegBrokenMobility</set>	
+		<set xpath="/buffs/buff[@name='buffLegBroken']/effect_group/passive_effect[@name='Mobility']/@operation">base_subtract</set>
+		
+		<!-- Sprained arm -->
+		<append xpath="/buffs/buff[@name='buffArmSprained']/effect_group/passive_effect[@name='WeaponHandling']/..">
+			
+			<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".ArmHurtMobility" operation="set" value="@$armHurtCounter"/>
+			<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".ArmHurtMobility" operation="divide" value="4000"/>
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".ArmHurtMobility" operation="set" value="@$armHurtCounter"/>
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".ArmHurtMobility" operation="divide" value="4000"/>
+			
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".ArmHurtMobilityDisplay" operation="set" value="@$armHurtCounter"/>
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".ArmHurtMobilityDisplay" operation="divide" value="40"/>
+			
+			<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".ArmHurtMobility" operation="set" value="0"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".ArmHurtMobilityDisplay" operation="set" value="0"/>
+					
+		</append>
+		
+		<set xpath="/buffs/buff[@name='buffArmSprained']/effect_group/passive_effect[@name='WeaponHandling' or @name='ReloadSpeedMultiplier' or @name='AttacksPerMinute']/@value">@.ArmHurtMobility</set>	
+		<set xpath="/buffs/buff[@name='buffArmSprained']/effect_group/passive_effect[@name='WeaponHandling' or @name='ReloadSpeedMultiplier' or @name='AttacksPerMinute']/@operation">perc_subtract</set>
+		
+		<!-- Broken arm -->
+		<append xpath="/buffs/buff[@name='buffArmBroken']/effect_group/passive_effect[@name='WeaponHandling']/..">
+			
+			<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".ArmBrokenMobility" operation="set" value="@$armHurtCounter"/>
+			<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".ArmBrokenMobility" operation="divide" value="24000"/>
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".ArmBrokenMobility" operation="set" value="@$armHurtCounter"/>
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".ArmBrokenMobility" operation="divide" value="24000"/>
+			
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".ArmBrokenMobilityDisplay" operation="set" value="@$armHurtCounter"/>
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".ArmBrokenMobilityDisplay" operation="divide" value="240"/>
+			
+			<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".ArmBrokenMobility" operation="set" value="0"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".ArmBrokenMobilityDisplay" operation="set" value="0"/>
+			
+		</append>
+		
+		<set xpath="/buffs/buff[@name='buffArmBroken']/effect_group/passive_effect[@name='WeaponHandling' or @name='ReloadSpeedMultiplier' or @name='AttacksPerMinute']/@value">@.ArmBrokenMobility</set>	
+		<set xpath="/buffs/buff[@name='buffArmBroken']/effect_group/passive_effect[@name='WeaponHandling' or @name='ReloadSpeedMultiplier' or @name='AttacksPerMinute']/@operation">perc_subtract</set>
+	
+	<!-- Makes the Twitch Painted buff permanent. -->
+	<!-- 										  -->
+		<append xpath="/buffs/buff[@name='buffStatusCheck01']">
+			
+			<effect_group name="Twitch Paint Effect">
+				<triggered_effect trigger="onSelfEnteredGame" action="ModifyScreenEffect" intensity="0.8" fade="1" effect_name="Infected"/>
+				<triggered_effect trigger="onSelfLeaveGame" action="ModifyScreenEffect" intensity="0" fade="1" effect_name="Infected"/>
+			</effect_group>
+				
+		</append>
+
 </configs>

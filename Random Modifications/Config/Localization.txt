@@ -1,12 +1,33 @@
-Key,File,Type,UsedInMainMenu,NoTranslate,english,Context / Alternate Text,german,latam,french,italian,japanese,koreana,polish,brazilian,russian,turkish,schinese,tchinese,spanish
-drugBrawling,items,Drug,,,Brawler's Buzz,,,,,,,,,,,,,,
-drugBrawlingDesc,items,Drug,,,"Gives all the bonuses of Vitamins, Painkillers, Steroids, Fort Bites, Beer, Health Bar and Skull Crushers for 12 minutes.",,,,,,,,,,,,,,
-ExpPewPewGunDesc,items,Gun,,,"Shoot your friends to give them some of that sweet exp. Can be loaded with four different ammo types for different exp gains. Experience required to get to level 60 is about 3 360 000 and 178 000 for each level after that.",,,,,,,,,,,,,,
-ammo10kExp,items,Gun,,,Exp Gun Ammo 10k,,,,,,,,,,,,,,
-ammo10kExpDesc,items,Gun,,,"Gives the target 10 000 exp, just below what's required for the first levels.",,,,,,,,,,,,,,
-ammo50kExp,items,Gun,,,Exp Gun Ammo 50k,,,,,,,,,,,,,,
-ammo50kExpDesc,items,Gun,,,"Gives the target 50 000 exp, gets you to level 5.",,,,,,,,,,,,,,
-ammo200kExp,items,Gun,,,Exp Gun Ammo 178k,,,,,,,,,,,,,,
-ammo200kExpDesc,items,Gun,,,"Gives the target 178 000 exp, gets you to level 13.",,,,,,,,,,,,,,
-ammo1mExp,items,Gun,,,Exp Gun Ammo 1m,,,,,,,,,,,,,,
-ammo1mExpDesc,items,Gun,,,"Gives the target 1 000 000 exp, gets you to level 37.",,,,,,,,,,,,,,
+Key,File,Type,english
+drugBrawling,items,Drug,Brawler's Buzz
+drugBrawlingDesc,items,Drug,"Gives all the bonuses of Vitamins, Painkillers, Steroids, Fort Bites, Beer, Health Bar and Skull Crushers for 12 minutes.",,,,,,,,,,,,,,
+ExpPewPewGunDesc,items,Gun,"Shoot your friends to give them some of that sweet exp. Can be loaded with four different ammo types for different exp gains. Experience required to get to level 60 is about 3 360 000 and 178 000 for each level after that."
+ammo10kExp,items,Gun,Exp Gun Ammo 10k
+ammo10kExpDesc,items,Gun,"Gives the target 10 000 exp, just below what's required for the first levels."
+ammo50kExp,items,Gun,Exp Gun Ammo 50k
+ammo50kExpDesc,items,Gun,"Gives the target 50 000 exp, gets you to level 5."
+ammo200kExp,items,Gun,Exp Gun Ammo 178k
+ammo200kExpDesc,items,Gun,"Gives the target 178 000 exp, gets you to level 13."
+ammo1mExp,items,Gun,Exp Gun Ammo 1m
+ammo1mExpDesc,items,Gun,"Gives the target 1 000 000 exp, gets you to level 37."
+skill_quest_1,Quest,Quest Info,+1 Skill Point
+skill_quest_5,Quest,Quest Info,+5 Skill Point
+skill_quest_25,Quest,Quest Info,+25 Skill Point
+skill_quest_100,Quest,Quest Info,+100 Skill Point
+skill_quest,Quest,Quest Info,Earn skill points
+skillquest_1,items,Item, +1 Skill Point
+skillquest_5,items,Item, +5 Skill Points
+skillquest_25,items,Item, +25 Skill Points
+skillquest_100,items,Item, +100 Skill Points
+skill_quest_offer,Quest,Quest Info,Earn some skill points without leveling up.
+buffArmBrokenDesc,buffs,Buff,"Your arm is broken, slowing your weapon handling, reload speed and swing speeds. A splint or cast will speed up healing.\nRanged or power attacks will delay healing or even hurt you.\n\nYour max health is lowered by {cvar(.ArmHurtHealthBlockage:0.0)}.\nYour accuracy, reload speed and attack speed is lowered by {cvar(.ArmBrokenMobilityDisplay:0.0)}%."
+buffArmCastDesc,buffs,Buff,"Your arm is in a cast, slowing your weapon handling, reload and swing speeds. This will take some time to heal.\nRanged or power attacks will delay healing or even hurt you. Further critical hits may result in a broken arm.\n\nYour max health is lowered by {cvar(.ArmHurtHealthBlockage:0.0)}.\nYour accuracy, reload speed and attack speed is lowered by 15%."
+buffArmSplintedDesc,buffs,Buff,"Your arm is splinted, slowing your weapon handling, reload and swing speeds. This will take some time to heal.\nRanged or power attacks will delay healing or even hurt you. Further critical hits may result in a broken arm.\n\nYour max health is lowered by {cvar(.ArmHurtHealthBlockage:0.0)}.\nYour accuracy, reload speed and attack speed is lowered by 15%."
+buffArmSprainedDesc,buffs,Buff,"Your arm is sprained, slowing your weapon handling, reload and swing speeds. This will take some time to heal.\nRanged or power attacks will delay healing or even hurt you. Further critical hits may result in a broken arm.\n\nYour max health is lowered by {cvar(.ArmHurtHealthBlockage:0.0)}.\nYour accuracy, reload speed and attack speed is lowered by {cvar(.ArmHurtMobilityDisplay:0.0)}%."
+buffLegBrokenDesc,buffs,Buff,"Your broken leg is slowing you down. A splint or cast will speed up healing.\nJumping or sprinting will delay healing or even hurt you.\n\nYour max health is lowered by {cvar(.LegHurtHealthBlockage:0.0)}.\nYour mobility is lowered by {cvar(.LegBrokenMobilityDisplay:0.0)}%."
+buffLegCastDesc,buffs,Buff,"Your leg is in a cast and will now heal faster.\nJumping or sprinting will delay healing or even hurt you. Further critical hits may result in a broken leg.\n\nYour max health is lowered by {cvar(.LegHurtHealthBlockage:0.0)}.\nYour mobility is lowered by 10%."
+buffLegSplintedDesc,buffs,Buff,"Your leg is splinted and needs time to heal.\nJumping or sprinting will delay healing or even hurt you. Further critical hits may result in a broken leg.\n\nYour max health is lowered by {cvar(.LegHurtHealthBlockage:0.0)}.\nYour mobility is lowered by 15%."
+buffLegSprainedDesc,buffs,Buff,"Your leg is sprained and slowing you down. This will take some time to heal.\nJumping or sprinting will delay healing or even hurt you. Further critical hits may result in a broken leg.\n\nYour max health is lowered by {cvar(.LegHurtHealthBlockage:0.0)}.\nYour mobility is lowered by {cvar(.LegHurtMobilityDisplay:0.0)}%."
+rebarShapes:VariantHelper,blocks,Rebar Shapes
+materialMrebar_shapes,blocks,Rebar
+brickGroupDesc,blocks,Rebar frames can be used to plan buildings and can be upgraded directly to concrete blocks.

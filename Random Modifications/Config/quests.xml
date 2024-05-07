@@ -4,4 +4,66 @@
 	<!-- 												 				  -->
 		<remove xpath="/quests/quest[@id='quest_whiteRiverCitizen1' or contains(@id, 'nexttrader')]/objective/property[@name='biome_filter_type' or @name='biome_filter']"/>
 	
+	<!-- SKILL NOTES (items, localization) - Adds notes that give skill points. -->
+	<!-- 															  		    -->
+		<append xpath="/quests">
+		
+			<quest id="skill_quest_1">
+				<property name="name_key" value="skill_quest_1"/>
+				<property name="subtitle_key" value="skill_quest"/>
+				<property name="description_key" value="skill_quest_offer"/>
+				<property name="icon" value="ui_game_symbol_skills"/>
+				<property name="repeatable" value="true"/>
+				<property name="category_key" value="challenge"/>
+				<property name="offer_key" value="skill_quest_offer"/>
+				<property name="difficulty" value="veryeasy"/>
+				<property name="shareable" value="false"/>
+
+				<reward type="SkillPoints" value="1"/>
+			</quest>
+			
+			<quest id="skill_quest_5">
+				<property name="name_key" value="skill_quest_5"/>
+				<property name="subtitle_key" value="skill_quest"/>
+				<property name="description_key" value="skill_quest_offer"/>
+				<property name="icon" value="ui_game_symbol_skills"/>
+				<property name="repeatable" value="true"/>
+				<property name="category_key" value="challenge"/>
+				<property name="offer_key" value="skill_quest_offer"/>
+				<property name="difficulty" value="veryeasy"/>
+				<property name="shareable" value="false"/>
+
+				<reward type="SkillPoints" value="5"/>
+			</quest>
+			
+			<quest id="skill_quest_25">
+				<property name="name_key" value="skill_quest_25"/>
+				<property name="subtitle_key" value="skill_quest"/>
+				<property name="description_key" value="skill_quest_offer"/>
+				<property name="icon" value="ui_game_symbol_skills"/>
+				<property name="repeatable" value="true"/>
+				<property name="category_key" value="challenge"/>
+				<property name="offer_key" value="skill_quest_offer"/>
+				<property name="difficulty" value="veryeasy"/>
+				<property name="shareable" value="false"/>
+
+				<reward type="SkillPoints" value="25"/>
+			</quest>
+			
+			<quest id="skill_quest_100">
+				<property name="name_key" value="skill_quest_100"/>
+				<property name="subtitle_key" value="skill_quest"/>
+				<property name="description_key" value="skill_quest_offer"/>
+				<property name="icon" value="ui_game_symbol_skills"/>
+				<property name="repeatable" value="true"/>
+				<property name="category_key" value="challenge"/>
+				<property name="offer_key" value="skill_quest_offer"/>
+				<property name="difficulty" value="veryeasy"/>
+				<property name="shareable" value="false"/>
+
+				<reward type="SkillPoints" value="100"/>
+			</quest>
+		
+		</append>
+	
 </configs>

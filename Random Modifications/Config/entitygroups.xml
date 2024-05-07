@@ -1,11 +1,33 @@
 <configs>
 
-	<append xpath="/entitygroups/entitygroup/entity[starts-with(@name, 'zombie')]/..">
+	<!-- Sets all zombies to be demolitioners. A20 -->
+	<!-- 										   -->
 	
-		<entity name="zombieDemolition"/>
+		<append xpath="/entitygroups/entitygroup/entity[starts-with(@name, 'zombie')]/..">
 		
-	</append>
+			<entity name="zombieDemolition"/>
+			
+		</append>
 
-	<remove xpath="/entitygroups/entitygroup/entity[starts-with(@name, 'zombie')][not(@name='zombieDemolition')]"/>
+		<remove xpath="/entitygroups/entitygroup/entity[starts-with(@name, 'zombie')][not(@name='zombieDemolition')]"/>
+
+
+	<!-- Sets all zombies to be demolitioners. A21 -->
+	<!-- 									   	   -->
+	
+		<csv xpath="/entitygroups/entitygroup[contains(@name, 'Zombie') or contains(@name, 'zombie') or contains(@name, 'Horde')]/text()" delim="\n" op="remove" >zombie*</csv>
+
+		<csv xpath="/entitygroups/entitygroup[contains(@name, 'Zombie') or contains(@name, 'zombie') or contains(@name, 'Horde')]/text()" delim="\n" op="add" >
+			zombieDemolition
+		</csv>
+		
+	<!-- Sets all zombie spiders to be dogs. -->
+	<!-- 									 -->
+	
+		<csv xpath="/entitygroups/entitygroup[contains(text(), 'zombieSpider*')]/text()" delim="\n" op="add" >
+			animalZombieDog
+		</csv>
+
+		<csv xpath="/entitygroups/entitygroup/text()" delim="\n" op="remove" >zombieSpider*</csv>
 
 </configs>

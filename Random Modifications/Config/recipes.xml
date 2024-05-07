@@ -28,5 +28,21 @@
 		<removeattribute xpath="/recipes/recipe[@name='resourceGunPowderBundle']/@craft_time">true</removeattribute>
 		<setattribute xpath="/recipes/recipe[@name='chemistryStation']" name="craft_time">60</setattribute>
 		<setattribute xpath="/recipes/recipe[@name='drugFortBites']" name="craft_time">60</setattribute>
+		
+	<!-- Very quick crafting. -->
+	<!-- 					  -->
+		<setattribute xpath="/recipes/recipe/ingredient/.." name="craft_time">0.1</setattribute>
+		
+	<!-- REBAR FRAMES (Localization, blocks, materials) - Make rebar frames great again. -->
+	<!-- 																				  -->
+		<append xpath="/recipes">
+			<recipe name="rebarShapes:VariantHelper" count="1" material_based="true" craft_area="forge" tags="perkAdvancedEngineering">
+				<ingredient name="unit_iron" count="4"/>
+				<ingredient name="unit_clay" count="1"/>
+				<effect_group>
+					<passive_effect name="CraftingIngredientCount" operation="perc_add" level="0,1,2,3,4" value=".25,.25,.25, 0, 0" tags="unit_iron"/>
+				</effect_group>
+			</recipe>
+		</append>
 	
 </configs>

@@ -135,9 +135,12 @@
 			</triggered_effect>
 			
 		</append>
+
+		<!-- Uncomment if you want to have 100% even with armour.
 		
-		<setattribute xpath="/items/item/effect_group/passive_effect[@name='BuffResistance']" name="tags">buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire,critResistDisplay
-		</setattribute>
+		<setattribute xpath="/items/item/effect_group/passive_effect[@name='BuffResistance']" name="tags">buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire,critResistDisplay
+		</setattribute> -->
+
 
 	<!-- Fix upgrade exp increase with nerdy glasses. -->
 	<!-- 											 -->
@@ -154,7 +157,6 @@
 	
 	<!-- Make Swat helmets shock the ones daring to attack you every other time -->
 	<!-- 																		-->
-	
 		<append xpath="/items/item[@name='armorSwatHelmet']">
 			<effect_group>
 				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
@@ -205,7 +207,6 @@
 	
 	<!-- EXP GUN (localization) - Exp gun goes pew pew.-->
 	<!-- 					  						   -->
-	
 		<append xpath="/items">
 		
 			<item name="ExpPewPewGun">
@@ -249,7 +250,6 @@
 			</item>
 			
 			<!-- Exp ammo go weeeee -->
-			
 			<item name="ammo10kExp">
 				<property name="Extends" value="ammoArrowIron"/>
 				<property name="Tags" value="ammo"/>
@@ -352,13 +352,59 @@
 			
 		</append>
 	
+	<!-- SKILL NOTES (quests, localization) - Adds notes that give skill points. -->
+	<!-- 																		 -->
+		<append xpath="/items">
+		
+			<item name="skillquest_1">
+				<property name="Extends" value="questMaster"/>
+				<property class="Action0">
+					<property name="QuestGiven" value="skill_quest_1"/>
+				</property>
+				<property name="CreativeMode" value="Player"/>
+				<property name="Group" value="Special Items"/>
+			</item>
+			
+			<item name="skillquest_5">
+				<property name="Extends" value="questMaster"/>
+				<property class="Action0">
+					<property name="QuestGiven" value="skill_quest_5"/>
+				</property>
+				<property name="CreativeMode" value="Player"/>
+				<property name="Group" value="Special Items"/>
+			</item>
+			
+			<item name="skillquest_25">
+				<property name="Extends" value="questMaster"/>
+				<property class="Action0">
+					<property name="QuestGiven" value="skill_quest_25"/>
+				</property>
+				<property name="CreativeMode" value="Player"/>
+				<property name="Group" value="Special Items"/>
+			</item>
+			
+			<item name="skillquest_100">
+				<property name="Extends" value="questMaster"/>
+				<property class="Action0">
+					<property name="QuestGiven" value="skill_quest_100"/>
+				</property>
+				<property name="CreativeMode" value="Player"/>
+				<property name="Group" value="Special Items"/>
+			</item>
+		
+		</append>
+	
 	<!-- Remove crosshairs while aiming -->
 	<!-- 								-->
 		<set xpath="/items/item/property[@name='CrosshairOnAim']/@value"> false </set>
 	
+	<!-- Remove guns from all bundles 	-->
+	<!-- 								-->
+		<csv xpath="/items/item[contains(@name, 'quest') and contains(@name, 'Bundle')]/property[@class='Action0']/property[@name='Create_item']/@value" delim="," op="remove" >gun*</csv>
+		<csv xpath="/items/item[contains(@name, 'quest') and contains(@name, 'Bundle')]/property[@class='Action0']/property[@name='Create_item_count']/@value" delim="," op="remove" >*-*</csv>
+	
 	<!-- Testing, possibly for the future. -->
 	<!-- 								   -->
-	
 		<append xpath="/items/item[@name='gunHandgunT2Magnum44']">
 		
 			<effect_group>

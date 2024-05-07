@@ -1,0 +1,19 @@
+<configs>
+	
+	<!-- REBAR FRAMES (Localization, blocks, recipes) - Make rebar frames great again. -->
+	<!-- 																				  -->
+		<append xpath="/materials">
+			<material id="Mrebar_shapes">
+				<property name="damage_category" value="metal"/>
+				<property name="surface_category" value="metal"/>
+				<property name="forge_category" value="metal"/>
+				<property name="Hardness" type="float" value="1"/>
+				<property name="stepsound" value="metal"/>
+				<property name="stability_glue" value="120"/>
+				<property name="Mass" type="int" value="10"/>
+				<property name="MaxDamage" value="100"/>
+				<property name="Experience" value="2"/>
+			</material>
+		</append>
+
+</configs>

@@ -1,7 +1,7 @@
 <configs>
 	
-	<!-- Change birdnest loot -->
-	<!-- 					  -->
+	<!-- Change birdnest loot to money and eggs -->
+	<!-- 					  					-->
 		<set xpath="//lootgroup[@name='groupBirdNestMain']">
 			<item group="groupBirdNest"/>
 			<item name="oldCash" count="50,250"/>

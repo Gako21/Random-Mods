@@ -13,6 +13,10 @@
 		<setattribute xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='BuffResistance']" name="tags">buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire
 		</setattribute>
 
+	<!-- RESET ALL (entityclasses) - Reset everything when dead. -->
+	<!-- 														 -->
+		<csv xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/triggered_effect[@trigger='onSelfRespawn']/@buff" op="add">buffResetLevel</csv>
+
 	<!-- Remove the food consumption when healing damage. -->
 	<!-- 												  	  -->
 		<append xpath="/entity_classes/entity_class[@name='playerMale']/effect_group[1]">
@@ -22,12 +26,12 @@
 		</append>	
 	
 	<!-- Make Jen look the old way. Doesn't work anymore in A20. =[ -->
-	<!-- 						   									-->
-		<set xpath="/entity_classes/entity_class[@name='npcTraderJen']/property[@name='Mesh']/@value">#Entities/Traders?JenLungRagdoll.prefab</set>
+	<!--
+		<set xpath="/entity_classes/entity_class[@name='npcTraderJen']/property[@name='Mesh']/@value">#Entities/Traders?JenLungRagdoll.prefab</set> -->
 	
 	<!-- Make Stripper Zombies look the old way. -->
 	<!-- 										 -->
-		<set xpath="/entity_classes/entity_class[@name='zombieStripper' or @name='zombieStripperFeral']/property[@name='Mesh']/@value">#Entities/Zombies?Zombies/zombieStandardStripperRagdoll.prefab</set>
+		<set xpath="/entity_classes/entity_class[@name='zombiePartyGirl' or @name='zombiePartyGirlFeral' or @name='zombiePartyGirlRadiated']/property[@name='Mesh']/@value">#Entities/Zombies?Zombies/zombieStandardStripperRagdoll.prefab</set>
 	
 	<!-- Set exp from harvesting to zero. -->
 	<!-- 								  -->
@@ -36,6 +40,24 @@
 			<passive_effect name="PlayerExpGain" operation="base_set" value="0" tags="Harvesting"/>
 		
 		</append>
+		
+	<!-- Set the exp gain to 10% from selling. -->
+	<!-- 						  -->
+		<append xpath="/entity_classes/entity_class[@name='playerMale']/effect_group">
+		
+			<passive_effect name="PlayerExpGain" operation="perc_set" value=".1" tags="Selling"/>
+			
+		</append>
+		
+	<!-- Reduce exp gains on upgrading and harvesting by 83% and 80%. -->
+	<!-- 															  -->
+		<append xpath="/entity_classes/entity_class[@name='playerMale']">
+			<effect_group>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="-.8" tags="Harvesting"/>
+			</effect_group>
+		</append>
+	
+		<remove xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='PlayerExpGain']"/>
 	
 	<!-- Set animal bodies stay for 30 minutes after killed for harvest.-->
 	<!-- 																-->
@@ -53,5 +75,36 @@
 				<triggered_effect trigger="onSelfAttackedOther" target="self" action="ShowToolbeltMessage" message="Hit it!"/>
 			</effect_group>
 		</append>
+		
+	<!-- Gives a club, bike, pipe pistol and 100 ammo as a starting item. -->
+	<!-- 																  -->
+		<append xpath="/entity_classes/entity_class[@name='playerMale']/property[contains(@name, 'ItemsOnEnterGame')]/@value">,meleeWpnClubT0WoodenClub,vehicleBicyclePlaceable,questRewardT0HandgunBundle</append>
+	
+	<!-- Removes zombies' ability to run after getting hit or falling down. -->
+	<!-- 																	-->
+		<set xpath="/entity_classes/entity_class[contains(@name, 'zombie')]/property[@name='MoveSpeedAggro' and starts-with(@value, '0.2')]/@value">0.2, 0.2</set>
+		<set xpath="/entity_classes/entity_class[contains(@name, 'zombie')]/property[@name='MoveSpeedAggro' and starts-with(@value, '0.3')]/@value">0.3, 0.3</set>
+		<set xpath="/entity_classes/entity_class[contains(@name, 'zombie')]/property[@name='MoveSpeedAggro' and starts-with(@value, '.4')]/@value">0.4, 0.4</set>
+		<set xpath="/entity_classes/entity_class[contains(@name, 'zombie')]/property[@name='MoveSpeedAggro' and starts-with(@value, '0.45')]/@value">0.45, 0.45</set>
+		<set xpath="/entity_classes/entity_class[contains(@name, 'zombie')]/property[@name='MoveSpeedAggro' and starts-with(@value, '.5')]/@value">0.5, 0.5</set>
+		<set xpath="/entity_classes/entity_class[contains(@name, 'zombie')]/property[@name='MoveSpeedAggro' and starts-with(@value, '0.6')]/@value">0.6, 0.6</set>
+		
+		<set xpath="/entity_classes/entity_class/property[@class='FallLandBehavior']">
+		
+			<property name="1None" data="anim=None;height=0,1;weight=0.4" />
+			<property name="1Land" data="anim=Land;height=0,1;weight=0.4" />
+			<property name="1LandLow" data="anim=LandLow;height=0,1;weight=0.15" />
+			<property name="1Stumble" data="anim=Stumble;height=0,1;weight=0.05" />
+
+			<property name="LowLand" data="anim=LandLow;height=1,3;weight=0.7" />
+			<property name="LowStumble" data="anim=Stumble;height=1,3;weight=0.3" />
+
+			<property name="MidStumble" data="anim=Stumble;height=3,5;weight=0.3" />
+			<property name="MidLandHard" data="anim=LandHard;height=3,5;weight=0.3" />
+
+			<property name="HighStumbleAndRage" data="anim=Stumble;height=5,13;weight=0.13" />
+			<property name="Ragdoll" data="anim=Ragdoll;height=3;weight=0.4" />
+			
+		</set>
 	
 </configs>
