@@ -3,13 +3,5 @@
 	<!-- Items can now be sold to vending machines because of sell limits. -->
 	<!-- 																   -->
 		<set xpath="/traders/trader_info[@id='4']/@allow_sell">true</set>
-	
-	<!-- Blessed Metal is sold now in SS 5.-->
-	<!-- 								   -->
-		<append xpath="/traders/trader_item_groups/trader_item_group[@name='modAllT5SecretStash']">
-		
-			<item name="modGunMeleeBlessedMetal" prob="0.15"/>
-		
-		</append>
 		
 </configs>

@@ -6,7 +6,8 @@
 		
 	<!-- Make haybales act as mines. Why? For the glory of Satan of course! -->
 	<!-- 																	-->
-		<setattribute xpath="/blocks/block[@name='hayBaleSquare']/property[@name='Material']" name="value">MLandMine</setattribute>
+		<set xpath="/blocks/block[@name='hayBaleSquare']/property[@name='Material']/@value">MLandMine</set>
+		<set xpath="/blocks/block[@name='hayBaleSquare']/property[@name='Class']/@value">Mine</set>
 		
 		<append xpath="/blocks/block[@name='hayBaleSquare']">
 		
@@ -26,7 +27,6 @@
 			<property name="Explosion.DamageBonus.wood" value="0"/>
 			<property name="Explosion.DamageBonus.water" value="0"/>
 			<property name="Group" value="Tools/Traps"/>
-			<property name="BuffsWhenWalkedOn" value="buffWeFlying"/>
 		
 		</append>
 	
@@ -97,6 +97,8 @@
 				<property name="Material" value="Mfurniture"/>
 				<property name="Shape" value="ModelEntity"/>
 				<property name="Model" value="Entities/Furniture/mattressFlatPrefab"/>
+				<property name="ModelOffset" value="0,0,0"/>
+				<property name="GndAlign" value="1"/>
 				<property name="Texture" value="282"/>
 				<property name="IsTerrainDecoration" value="true"/>
 				<property name="FallDamage" value="0"/>
@@ -116,10 +118,11 @@
 			<block name="rebarShapes" shapes="All">
 				<property name="Group" value="Building,advBuilding"/>
 				<property name="DescriptionKey" value="brickGroupDesc"/>
+				<property name="Shape" value="New"/>
 				<property name="Material" value="Mrebar_shapes"/>
 				<property name="Weight" value="10"/>
-				<property name="Texture" value="194"/>
-				<property name="UiBackgroundTexture" value="194"/>
+				<property name="Texture" value="55"/>
+				<property name="UiBackgroundTexture" value="55"/>
 				<property name="CreativeMode" value="Player"/>
 				<property class="RepairItems">
 					<property name="resourceScrapIron" value="5"/>

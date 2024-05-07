@@ -10,8 +10,8 @@
 					<property name="UnlockedBy" value="perkBarBrawling7BoozedUp"/>
 					<property name="DisplayType" value="medicalPainkillers"/>
 					<property name="HoldType" value="16"/>
-					<property name="Meshfile" value="#Other/Items?Health/painkillersPrefab.prefab"/>
-					<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+					<property name="Meshfile" value="@:Other/Items/Health/painkillersPrefab.prefab"/>
+					<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
 					<property name="Material" value="Morganic"/>
 					<property name="EconomicValue" value="10"/>
 					<property name="Stacknumber" value="10"/>
@@ -167,8 +167,8 @@
 	
 	<!-- Make sledgehammers shock everyone around you - literally! -->
 	<!-- 														   -->
-		<append xpath="/items/item/property[@name='Tags' and @value= 'blunt,melee,grunting,heavy,sledge,weapon,meleeWeapon,longShaft,attStrength,perkSkullCrusher,canHaveCosmetic']/..">
-			<effect_group name="apply damage buff, meleeWpnBatonT2StunBaton">
+		<append xpath="/items/item/property[contains(@value, 'sledge')]/..">
+			<effect_group name="apply damage buff, sledgehammers">
 				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="Ragdoll" target="otherAOE" range="5" target_tags="zombie,animal" duration="2.5" force="350">
 				</triggered_effect>
 				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="Ragdoll" target="otherAOE" range="5" target_tags="zombie,animal" duration="2.5" force="350">
@@ -256,9 +256,8 @@
 				<property name="CustomIcon" value="ammo9mmBulletBall"/>
 				<property name="CustomIconTint" value="6, 31, 242"/>
 				<property name="DisplayType" value="ammoArrow"/>
-				<property name="Meshfile" value="#Other/Items?Weapons/Ranged/Bows/Arrows/bolt_stonePrefab.prefab"/>
 				<property name="HoldType" value="45"/>
-				<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+				<property name="DropMeshfile" value="@:Other/Items?Misc/sack_droppedPrefab.prefab"/>
 				<property name="Material" value="Mbrass"/>
 				<property name="Stacknumber" value="1000"/>
 				<property name="EconomicValue" value="1"/>
@@ -332,7 +331,7 @@
 					<passive_effect name="RoundsPerMinute" operation="base_set" value="450"/>
 					<passive_effect name="BurstRoundCount" operation="base_set" value="5000"/>
 					<passive_effect name="EntityDamage" operation="base_set" value="0"/>
-					<passive_effect name="BlockDamage" operation="base_set" value="1000"/>
+					<passive_effect name="BlockDamage" operation="base_set" value="10000"/>
 					<passive_effect name="MaxRange" operation="base_set" value="200"/>
 					<passive_effect name="SpreadDegreesVertical" operation="base_set" value="0"/>
 					<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="0"/>
@@ -400,8 +399,8 @@
 	
 	<!-- Remove guns from all bundles 	-->
 	<!-- 								-->
+		<csv xpath="/items/item[contains(@name, 'quest') and contains(@name, 'Bundle')]/property[@class='Action0']/property[@name='Create_item' and starts-with(@value, 'gun')]/../property[@name='Create_item_count']/@value" delim="," op="remove">*6</csv>
 		<csv xpath="/items/item[contains(@name, 'quest') and contains(@name, 'Bundle')]/property[@class='Action0']/property[@name='Create_item']/@value" delim="," op="remove" >gun*</csv>
-		<csv xpath="/items/item[contains(@name, 'quest') and contains(@name, 'Bundle')]/property[@class='Action0']/property[@name='Create_item_count']/@value" delim="," op="remove" >*-*</csv>
 	
 	<!-- Testing, possibly for the future. -->
 	<!-- 								   -->

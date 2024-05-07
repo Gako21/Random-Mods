@@ -1,7 +1,7 @@
 <configs>
 
-	<!-- ONLY CRAFT ONCE (entityclasses) - Make an item only craftable once. Also add tags="learnable" on the desired item. -->
-	<!--																												    -->
+	<!-- ONLY CRAFT ONCE (entityclasses, recipes) - Make an item only craftable once. -->
+	<!--																			  -->
 		<append xpath="/buffs/buff[@name='buffStatusCheck02']/effect_group[1]">
 		
 			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="campfire" operation="set" value="0">

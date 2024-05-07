@@ -28,6 +28,6 @@ buffLegBrokenDesc,buffs,Buff,"Your broken leg is slowing you down. A splint or c
 buffLegCastDesc,buffs,Buff,"Your leg is in a cast and will now heal faster.\nJumping or sprinting will delay healing or even hurt you. Further critical hits may result in a broken leg.\n\nYour max health is lowered by {cvar(.LegHurtHealthBlockage:0.0)}.\nYour mobility is lowered by 10%."
 buffLegSplintedDesc,buffs,Buff,"Your leg is splinted and needs time to heal.\nJumping or sprinting will delay healing or even hurt you. Further critical hits may result in a broken leg.\n\nYour max health is lowered by {cvar(.LegHurtHealthBlockage:0.0)}.\nYour mobility is lowered by 15%."
 buffLegSprainedDesc,buffs,Buff,"Your leg is sprained and slowing you down. This will take some time to heal.\nJumping or sprinting will delay healing or even hurt you. Further critical hits may result in a broken leg.\n\nYour max health is lowered by {cvar(.LegHurtHealthBlockage:0.0)}.\nYour mobility is lowered by {cvar(.LegHurtMobilityDisplay:0.0)}%."
-rebarShapes:VariantHelper,blocks,Rebar Shapes
-materialMrebar_shapes,blocks,Rebar
-brickGroupDesc,blocks,Rebar frames can be used to plan buildings and can be upgraded directly to concrete blocks.
+rebarShapes:VariantHelper,blocks,Block,Rebar Shapes
+materialMrebar_shapes,blocks,Block,Rebar
+brickGroupDesc,blocks,Block,Rebar frames can be used to plan buildings and can be upgraded directly to concrete blocks.

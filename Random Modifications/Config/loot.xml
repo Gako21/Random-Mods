@@ -1,15 +1,14 @@
 <configs>
 	
-	<!-- Change birdnest loot to money and eggs -->
-	<!-- 					  					-->
-		<set xpath="//lootgroup[@name='groupBirdNestMain']">
-			<item group="groupBirdNest"/>
-			<item name="oldCash" count="50,250"/>
-		</set>
-
-		<set xpath="//lootgroup[@name='groupBirdNest']">
+	<!-- Change birdnest loot to money and eggs. -->
+	<!-- 										-->
+		<set xpath="//lootgroup[@name='groupBirdNest01']">
 			<item name="foodEgg" count="4,8"/>
+		</set>
+	
+		<set xpath="//lootgroup[@name='groupBirdNest02']">
 			<item name="casinoCoin" count="3000,8000"/>
+			<item name="oldCash" count="50,250"/>
 		</set>
 	
 </configs>

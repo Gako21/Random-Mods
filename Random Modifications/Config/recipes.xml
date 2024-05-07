@@ -44,5 +44,9 @@
 				</effect_group>
 			</recipe>
 		</append>
+		
+	<!-- ONLY CRAFT ONCE (entityclasses, buffs) - Make an item only craftable once. -->
+	<!--																		    -->
+		<setattribute xpath="/recipes/recipe[@name='campfire]" name="tags">learnable</setattribute>
 	
 </configs>

@@ -1,7 +1,7 @@
 <configs>
 
-	<!-- ONLY CRAFT ONCE (buffs) - Make an item only craftable once. -->
-	<!-- 													 		 -->
+	<!-- ONLY CRAFT ONCE (buffs, recipes) - Make an item only craftable once. -->
+	<!-- 													 		 		  -->
 		<append xpath="/entity_classes/entity_class[@name='playerMale']/effect_group[1]">
 		
 		<triggered_effect trigger="onSelfFirstSpawn" action="ModifyCVar" cvar="campfire" operation="set" value="1"/>
@@ -13,8 +13,8 @@
 		<setattribute xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='BuffResistance']" name="tags">buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire
 		</setattribute>
 
-	<!-- RESET ALL (entityclasses) - Reset everything when dead. -->
-	<!-- 														 -->
+	<!-- RESET ALL (buffs) - Reset everything when dead. -->
+	<!-- 												 -->
 		<csv xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/triggered_effect[@trigger='onSelfRespawn']/@buff" op="add">buffResetLevel</csv>
 
 	<!-- Remove the food consumption when healing damage. -->
@@ -29,9 +29,9 @@
 	<!--
 		<set xpath="/entity_classes/entity_class[@name='npcTraderJen']/property[@name='Mesh']/@value">#Entities/Traders?JenLungRagdoll.prefab</set> -->
 	
-	<!-- Make Stripper Zombies look the old way. -->
-	<!-- 										 -->
-		<set xpath="/entity_classes/entity_class[@name='zombiePartyGirl' or @name='zombiePartyGirlFeral' or @name='zombiePartyGirlRadiated']/property[@name='Mesh']/@value">#Entities/Zombies?Zombies/zombieStandardStripperRagdoll.prefab</set>
+	<!-- Make Stripper Zombies look the old way. Doesn't work anymore in A21. =[ -->
+	<!-- 										 
+		<set xpath="/entity_classes/entity_class[@name='zombiePartyGirl' or @name='zombiePartyGirlFeral' or @name='zombiePartyGirlRadiated']/property[@name='Mesh']/@value">#Entities/Zombies?Zombies/zombieStandardStripperRagdoll.prefab</set> -->
 	
 	<!-- Set exp from harvesting to zero. -->
 	<!-- 								  -->
@@ -51,13 +51,13 @@
 		
 	<!-- Reduce exp gains on upgrading and harvesting by 83% and 80%. -->
 	<!-- 															  -->
+		<remove xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='PlayerExpGain']"/>
+		
 		<append xpath="/entity_classes/entity_class[@name='playerMale']">
 			<effect_group>
 				<passive_effect name="PlayerExpGain" operation="perc_add" value="-.8" tags="Harvesting"/>
 			</effect_group>
 		</append>
-	
-		<remove xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='PlayerExpGain']"/>
 	
 	<!-- Set animal bodies stay for 30 minutes after killed for harvest.-->
 	<!-- 																-->
