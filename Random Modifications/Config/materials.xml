@@ -1,7 +1,7 @@
 <configs>
 	
 	<!-- REBAR FRAMES (Localization, blocks, recipes) - Make rebar frames great again. -->
-	<!-- 																				  -->
+	<!-- 																			   -->
 		<append xpath="/materials">
 			<material id="Mrebar_shapes">
 				<property name="damage_category" value="metal"/>
@@ -15,5 +15,10 @@
 				<property name="Experience" value="2"/>
 			</material>
 		</append>
+
+	<!-- Change the max health and explosion resistance of the drawbridge. Note the damage calculation on the individual blocks
+		 of the drawbridge, making the damage a lot higher that on would think. -->
+	<set xpath="/materials/material[@id='MmetalDrawbridge']/property[@name='MaxDamage']/@value">20000</set>
+	<set xpath="/materials/material[@id='MmetalDrawbridge']/property[@name='explosionresistance']/@value">0.98</set>
 
 </configs>

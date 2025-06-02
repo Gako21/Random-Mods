@@ -1,8 +1,4 @@
 <configs>
-
-	<!-- Make rockets go through bars. OP? Perhaps. -->
-	<!-- 											-->
-		<set xpath="/blocks/block[@name='ironBarsCentered']/property[@name='Collide']/@value">movement,melee</set>
 		
 	<!-- Make haybales act as mines. Why? For the glory of Satan of course! -->
 	<!-- 																	-->
@@ -46,6 +42,8 @@
 		<!-- Spikes -->
 		<set xpath="/blocks/block[@name='trapSpikesWoodDmg0']/property[@name='DowngradeBlock']/@value">trapSpikesWoodDmg0</set>
 		
+		<set xpath="/blocks/block[@name='trapSpikesWoodDmg0']/drop/@count">0</set>
+		
 		<append xpath="/blocks/block[@name='trapSpikesWoodDmg0']">
 			<property name="CanPickup" value="true"/>
 		</append>
@@ -54,9 +52,6 @@
 	<!-- 																								-->
 		<append xpath="/blocks/block/property[@name='Extends' and @value='cropsGrowingMaster']/..">
 			<property name="MaxDamage" value="30"/>
-		</append>
-
-		<append xpath="/blocks/block[contains(@name, 'HarvestPlayer')]">
 			<property class="RepairItems"> <property name="resourceYuccaFibers" value="1"/> </property>
 		</append>
 		

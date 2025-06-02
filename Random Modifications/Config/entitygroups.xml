@@ -22,8 +22,8 @@
 		<csv xpath="/entitygroups/entitygroup/text()" delim="\n" op="remove" >zombieSpider*</csv>
 
 
-	<!-- Sets all zombies to be demolitioners. A21 -->
-	<!-- 									   	   -->
+	<!-- Sets all zombies to be demolitioners. A21 onwards -->
+	<!-- 									   	   		   -->
 	
 		<csv xpath="/entitygroups/entitygroup[contains(@name, 'Zombie') or contains(@name, 'zombie') or contains(@name, 'Horde')]/text()" delim="\n" op="remove" >zombie*</csv>
 

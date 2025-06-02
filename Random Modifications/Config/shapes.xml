@@ -1,5 +1,7 @@
 <configs>
 
+	<!-- Make rockets go through bars. OP? Perhaps. -->
+	<!-- 											-->
 	<csv xpath="/shapes/shape[starts-with(@name, 'bars')]/property[@name='Collide']/@value" delim="," op="remove">
 	rocket
 	</csv>

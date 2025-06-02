@@ -5,7 +5,12 @@
 		<append xpath="/buffs/buff[@name='buffStatusCheck02']/effect_group[1]">
 		
 			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="campfire" operation="set" value="0">
-				<requirement name="PlayerItemCount" item_name="campfire" operation="Equals" value="1"/></triggered_effect>
+				<requirement name="PlayerItemCount" item_name="campfire" operation="GTE" value="1"/>
+			</triggered_effect>
+			
+			<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="campfire" operation="set" value="1">
+				<requirement name="PlayerItemCount" item_name="campfire" operation="Equals" value="1"/>
+			</triggered_effect>
 				
 		</append>
 

@@ -7,11 +7,11 @@
 			<recipe name="drugBrawling" count="2" craft_time="10" tags="learnable">
 				<ingredient name="drugHealthBar" count="2"/>
 				<ingredient name="drugSkullCrushers" count="2"/>
-				<ingredient name="drugFortBites" count="6"/>
+				<ingredient name="drugFortBites" count="2"/>
 				<ingredient name="drugSteroids" count="1"/>
 				<ingredient name="drugPainkillers" count="4"/>
 				<ingredient name="drugVitamins" count="1"/>
-				<ingredient name="drinkJarBeer" count="8"/>
+				<ingredient name="drinkJarBeer" count="6"/>
 			</recipe>
 		
 		</append>
@@ -47,6 +47,6 @@
 		
 	<!-- ONLY CRAFT ONCE (entityclasses, buffs) - Make an item only craftable once. -->
 	<!--																		    -->
-		<setattribute xpath="/recipes/recipe[@name='campfire]" name="tags">learnable</setattribute>
+		<setattribute xpath="/recipes/recipe[@name='campfire']" name="tags">learnable</setattribute>
 	
 </configs>

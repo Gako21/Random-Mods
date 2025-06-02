@@ -24,19 +24,20 @@
 					</property>
 					<effect_group tiered="false" name="Drug Tier 6">
 						
+						<display_value name="dDuration" value="360"/>
 						<display_value name="dInstantHealth" value="40"/>
 						<display_value name="dHealthLoss" value=".6"/>
 						<display_value name="dStunResist" value="1"/>
 						<display_value name="dDiseaseResist" value="1"/>
-						<display_value name="dDuration" value="360"/>
 						<display_value name="dRunSpeed" value=".1"/>
-						<display_value name="$waterAmountAdd" value="-100"/>
+						<display_value name="$waterAmountAdd" value="-115"/>
 						<display_value name="dStaminaRegen" value=".4"/>
 						<display_value name="dEntityDamageBrawling" value="3.5"/>
 						<display_value name="dMaxHealthBonus" value="10"/>
-						<display_value name="dBuffResistance" value=".5"/>
+						<display_value name="dBuffResistance" value=".25"/>
 						<display_value name="dNaturalCritHealing" value="2"/>
 						<display_value name="dStopsConcussion" value="1"/>
+						<display_value name="dCarryCapacity" value="50"/>
 						
 						<!-- Painkillers -->
 						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugPainkillersDuration" operation="add" value="363"/>
@@ -142,22 +143,22 @@
 		</setattribute> -->
 
 
-	<!-- Fix upgrade exp increase with nerdy glasses. -->
-	<!-- 											 -->
-		<append xpath="/items/item[@name='apparelNerdGlasses']/effect_group">
-		
-			<passive_effect name="PlayerExpGain" operation="perc_add" value=".5" tags="Upgrading"/>
-		
-		</append>
-	
 	<!-- Set every item but tiered items, hand-held tools and clothing/armour to stack at 30 000. -->
 	<!-- 																						  -->
 		<set xpath="/items/item/property[@name='Stacknumber']/@value">30000</set>
 		<set xpath="/items/item/property[@name='Tags' and (contains(@value, 'tool')) or (contains(@value, 'clothing'))]/../property[@name='Stacknumber']/@value">1</set>
 	
-	<!-- Make Swat helmets shock the ones daring to attack you every other time -->
+	<!-- Fix Nerd Helmet exp gain for upgrading. -->
+	<!-- 										 -->
+		<append xpath="/items/item{@name='armorNerdHelmet']">
+			
+			<passive_effect name="PlayerExpGain" operation="perc_add" value=".08,.16,.24,.32,.4,.8" tier="1,2,3,4,5,6" tags="Upgrading"/>
+			
+		</append>
+	
+	<!-- Make primitive hood shock the ones daring to attack you every other time -->
 	<!-- 																		-->
-		<append xpath="/items/item[@name='armorSwatHelmet']">
+		<append xpath="/items/item[@name='armorPrimitiveHelmet']">
 			<effect_group>
 				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
 				<triggered_effect trigger="onOtherAttackedSelf" action="Ragdoll" target="other" duration="2.5" force="350"/>

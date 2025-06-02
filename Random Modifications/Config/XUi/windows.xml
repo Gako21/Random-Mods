@@ -1,0 +1,20 @@
+<configs>
+
+	<set xpath="/windows/window[@name='windowLocation']">
+	
+	<sprite pos="0,6" name="Background" sprite="menu_empty" color="[darkestGrey]" height="46" width="250" type="sliced" />
+		<sprite depth="8" name="backgroundMain" sprite="menu_empty3px" pos="0,6" width="250" height="46" color="[black]" type="sliced" fillcenter="false" />
+		<label depth="3" text="{locationname}" font_size="20" justify="center" pos="6,2" height="28" />
+		
+	</set>
+	
+	<set xpath="/windows/window[@name='windowEntering']">
+	
+	<rect pos="-150,-85" width="300" height="100" visible="{visible}" >
+			<sprite depth="1" name="background" sprite="menu_empty3px" color="65,65,65,245" type="sliced" />
+			<label depth="3" name="TextContent" pos="5,-14" font_size="42" color="[white]" pivot="topleft" text="{locationname}" justify="center" width="290" height="60" />
+		</rect>
+		
+	</set>
+
+</configs>

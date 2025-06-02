@@ -5,5 +5,4 @@
     <Version value="1.0.0.0" /> <!-- (Required) SemVer version of the mod. Has to be in the format major.minor[.build[.revision]] (i.e. build and revision can be left out, recommend using them though as typically done with Semantic Versioning -->
     <Description value="Does all kinds of small things to your game." /> <!-- (Optional) More text to show on UIs -->
     <Author value="Gako" /> <!-- (Optional) Name(s) of the author(s) -->
-    <Website value="" /> <!-- (Optional) URL of a website of the mod -->
 </xml>
