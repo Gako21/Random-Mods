@@ -9,9 +9,8 @@ This mod folder is a compilation of the various small modlets I've created due t
   - Added a way to set an item to be crafted only once.
   - Added a buff that kills all zombies just before the blood moon starts.
   - Added a way to unlock a recipe when two perks are at a certain level.
-  - Added blessed metal to the level 5 secret stash.
 - Changed
-  - Fixed Nerdy Glasses increased exp when upgrading.
+  - Fixed Nerd Helmet increased exp when upgrading.
   - Set crafting resource stacks to give one experience.
   - Made a few recipes more sensitive time-wise.
   - Set Pummel Pete's damage bonus last a bit longer.
@@ -25,23 +24,17 @@ This mod folder is a compilation of the various small modlets I've created due t
   - Seeds are more durable and repairable.
   - Set stamina/health/food/water increase double.
   - Set zombies inflict infection with every hit.
-  - Set the stripper zombie look the old way.
   - Set exp from harvesting to zero.
-  - Set animal bodies stay longer on the ground.
-  - Recolour the dyes.
   - Set sledgehammers to shock zombies around the target.
-  - Set enemies hitting you with a SWAT helmet to have a chance to get shocked.
-  - Changed the stack size.
+  - Set enemies hitting you with a primitive hood to have a chance to get shocked.
+  - Changed the stack sizes.
   - Changed the loot in birdnests.
   - Set all zombies be demolitioners
+  - Set spider zombies to be zombie dogs
   - Set most lockable containers not to destroy themselves when they fall. Most of the time. 
 - Removed
   - Removed crosshairs while aiming.
   - Removed biome restrictions from starting trader quest and trade routes.
   - Removed food consumption when healing damage.
 
-This mod compilation will most likely be useful if you are looking on examples of how to do some modifications similar to a one listed above. In actual gameplay some changes may prove useful whereas other are either indifferent (SWAT helmet mod) or even negative (Haybale mines). However, if you want to make your life more chaotic, go for it! It's all there for you to use freely.
-
-## Mods too big for github
-#### [Hunger Games](https://bit.ly/3ce4hPi)
-- A mod that creates a battle royale type of gameplay. Players are placed in the outskirts of a custom map and pushed near the centre periodically.
+This mod compilation will most likely be useful if you are looking on examples of how to do some modifications similar to a one listed above. In actual gameplay some changes may prove useful whereas other are either indifferent (dye recolor) or even negative (haybale mines). However, if you want to make your life more chaotic, go for it! It's all there for you to use freely.
